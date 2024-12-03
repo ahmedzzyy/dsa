@@ -27,8 +27,8 @@ To work with the project, you need the following tools installed:
 ### Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd <repository-folder>
+git clone https://github.com/ahmedzzyy/dsa.git
+cd dsa
 ```
 
 ### Build the Project
