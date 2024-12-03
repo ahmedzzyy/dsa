@@ -2,8 +2,8 @@
 
 ## 1. Linked List
 - [X] Implement Singly Linked List
-- [ ] Implement Doubly Linked List
-- [ ] Implement Circular Linked List
+- [X] Implement Doubly Linked List
+- [X] Implement Circular Linked List
 
 ---
 
