@@ -1,7 +1,7 @@
 # 🚀 Data Structures Implementation TODO
 
 ## 1. Linked List
-- [ ] Implement Singly Linked List
+- [X] Implement Singly Linked List
 - [ ] Implement Doubly Linked List
 - [ ] Implement Circular Linked List
 
