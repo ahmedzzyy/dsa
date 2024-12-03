@@ -19,9 +19,6 @@ public class Queue<E> {
     private int size;
 
     public Queue() { // Initializes empty Queue
-        front = null;
-        rear = null;
-        size = 0;
     }
 
     public int size() { return size; }

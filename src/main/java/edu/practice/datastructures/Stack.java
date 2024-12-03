@@ -18,8 +18,6 @@ public class Stack<E> {
     private int size;
 
     public Stack() { // Initializes empty stack
-        top = null;
-        size = 0;
     }
 
     public int size() { return size; }
