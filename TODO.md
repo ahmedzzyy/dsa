@@ -8,9 +8,9 @@
 ---
 
 ## 2. Hash Table
-- [ ] Implement a basic Hash Table
+- [X] Implement a basic Hash Table
 - [ ] Implement Collision Handling using Chaining
-- [ ] Implement Collision Handling using Open Addressing
+- [X] Implement Collision Handling using Open Addressing
 
 ---
 
