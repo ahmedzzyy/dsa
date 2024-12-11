@@ -33,9 +33,10 @@
 ## 5. Graph
 - [ ] Represent a Graph using an Adjacency Matrix
 - [ ] Represent a Graph using an Adjacency List
-- [ ] Implement Depth-First Search (DFS)
-- [ ] Implement Breadth-First Search (BFS)
-- [ ] Implement Weighted Graph (Dijkstra’s Algorithm, A* Search)
+- Algorithms - might implement later on
+  - Implement Depth-First Search (DFS)
+  - Implement Breadth-First Search (BFS)
+  - Implement Weighted Graph (Dijkstra’s Algorithm, A* Search)
 
 ---
 
