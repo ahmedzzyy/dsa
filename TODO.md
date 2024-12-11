@@ -31,7 +31,7 @@
 ---
 
 ## 5. Graph
-- [ ] Represent a Graph using an Adjacency Matrix
+- [X] Represent a Graph using an Adjacency Matrix
 - [ ] Represent a Graph using an Adjacency List
 - Algorithms - might implement later on
   - Implement Depth-First Search (DFS)
