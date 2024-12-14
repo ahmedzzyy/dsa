@@ -41,10 +41,10 @@
 ---
 
 ## 6. Trie (Prefix Tree)
-- [ ] Implement a Trie
-- [ ] Add Insert Functionality
-- [ ] Add Search Functionality
-- [ ] Add Delete Functionality
+- [X] Implement a Trie
+- [X] Add Insert Functionality
+- [X] Add Search Functionality
+- [X] Add Delete Functionality
 
 ---
 
