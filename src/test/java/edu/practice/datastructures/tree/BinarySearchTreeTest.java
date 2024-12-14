@@ -131,8 +131,6 @@ public class BinarySearchTreeTest {
             postorderTraversalList.add(integer);
         }
 
-        System.out.println(integerBinarySearchTree.postorderTraversal());
-
         assertThat(integerBinarySearchTree.postorderTraversal().equals(postorderTraversalList)).isTrue();
     }
 
