@@ -17,7 +17,7 @@
 ## 3. Tree Structures
 - [X] Implement a Binary Tree
 - [X] Implement a Binary Search Tree (BST)
-- [ ] Implement an AVL Tree (Self-balancing BST)
+- [X] Implement an AVL Tree (Self-balancing BST)
 - [ ] Implement a Red-Black Tree
 - [ ] Implement a B-Tree
 
