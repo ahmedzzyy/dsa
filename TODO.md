@@ -24,8 +24,8 @@
 ---
 
 ## 4. Heap
-- [ ] Implement Min-Heap
-- [ ] Implement Max-Heap
+- [X] Implement Min-Heap
+- [X] Implement Max-Heap
 - [ ] Implement Priority Queue
 
 ---
