@@ -1,7 +1,7 @@
 # 🚀 Rewriting Data Structures Implementation in Kotlin [todo]
 
 ## 1. Migrate existing Java implementations to Kotlin
-- [ ] Stack, Queue
+- [X] Stack, Queue
 - [ ] Linked List
 - [ ] Heap, Priority Queue
 - [ ] Trie
