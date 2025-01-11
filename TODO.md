@@ -3,7 +3,7 @@
 ## 1. Migrate existing Java implementations to Kotlin
 - [X] Stack, Queue
 - [X] Linked List
-- [ ] Heap, Priority Queue
+- [X] Heap, Priority Queue
 - [ ] Trie
 - [ ] Hash Table
 - [ ] Graph
