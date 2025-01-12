@@ -4,7 +4,7 @@
 - [X] Stack, Queue
 - [X] Linked List
 - [X] Heap, Priority Queue
-- [ ] Trie
+- [X] Trie
 - [ ] Hash Table
 - [ ] Graph
 - [ ] Tree
