@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 
 class ChainingHashTableTest {
 
-    private lateinit var hashTable: ChainingHashTable<String, Int>
+    private lateinit var hashTable: HashTable<String, Int>
 
     @BeforeEach
     fun setup() {

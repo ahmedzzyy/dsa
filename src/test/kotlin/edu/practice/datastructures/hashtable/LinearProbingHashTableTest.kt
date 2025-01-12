@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test
 
 class LinearProbingHashTableTest {
 
-    private lateinit var hashTable: LinearProbingHashTable<String, Int>
+    private lateinit var hashTable: HashTable<String, Int>
 
     @BeforeEach
     fun setup() {

@@ -2,7 +2,7 @@ package edu.practice.datastructures.hashtable
 
 import kotlin.math.abs
 
-class LinearProbingHashTable<K, V> {
+class LinearProbingHashTable<K, V>: HashTable<K, V> {
 
     companion object {
         private data class Entry<K, V>(val key: K, var value: V)
@@ -18,7 +18,7 @@ class LinearProbingHashTable<K, V> {
         return abs(key.hashCode() % table.size)
     }
 
-    fun put(key: K, value: V) {
+    override fun put(key: K, value: V) {
         if (size.toDouble() / table.size >= LOAD_FACTOR_THRESHOLD) {
             resize()
         }
@@ -38,7 +38,7 @@ class LinearProbingHashTable<K, V> {
         size++
     }
 
-    fun get(key: K): V? {
+    override fun get(key: K): V? {
         var index = hash(key)
         while (table[index] != null) {
             val entry = table[index]
@@ -52,7 +52,7 @@ class LinearProbingHashTable<K, V> {
         return null
     }
 
-    fun remove(key: K): Boolean {
+    override fun remove(key: K): Boolean {
         var index = hash(key)
         while (table[index] != null) {
             val entry = table[index]
@@ -92,7 +92,7 @@ class LinearProbingHashTable<K, V> {
         }
     }
 
-    fun size(): Int = size
+    override fun size(): Int = size
 
-    fun isEmpty(): Boolean = (size == 0)
+    override fun isEmpty(): Boolean = (size == 0)
 }

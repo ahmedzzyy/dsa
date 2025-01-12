@@ -2,7 +2,7 @@ package edu.practice.datastructures.hashtable
 
 import kotlin.math.abs
 
-class ChainingHashTable<K, V> {
+class ChainingHashTable<K, V>: HashTable<K, V> {
 
     companion object {
         private data class Entry<K, V>(val key: K, var value: V, var next: Entry<K, V>? = null)
@@ -18,7 +18,7 @@ class ChainingHashTable<K, V> {
         return abs(key.hashCode() % table.size)
     }
 
-    fun put(key: K, value: V) {
+    override fun put(key: K, value: V) {
         if (size.toDouble() / table.size >= LOAD_FACTOR_THRESHOLD) {
             resize()
         }
@@ -40,7 +40,7 @@ class ChainingHashTable<K, V> {
         size++
     }
 
-    fun get(key: K): V? {
+    override fun get(key: K): V? {
         val index = hash(key)
         var entry = table[index]
         while (entry != null) {
@@ -54,7 +54,7 @@ class ChainingHashTable<K, V> {
         return null
     }
 
-    fun remove(key: K): Boolean {
+    override fun remove(key: K): Boolean {
         val index = hash(key)
         var entry = table[index]
         var prev: Entry<K, V>? = null
@@ -89,7 +89,7 @@ class ChainingHashTable<K, V> {
         }
     }
 
-    fun size(): Int = size
+    override fun size(): Int = size
 
-    fun isEmpty(): Boolean = (size == 0)
+    override fun isEmpty(): Boolean = (size == 0)
 }
