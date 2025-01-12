@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test
 
 class SinglyLinkedListTest {
 
-    private lateinit var integerSLL: SinglyLinkedList<Int>
+    private lateinit var integerSLL: LinkedList<Int>
 
     @BeforeEach
     fun setup() {

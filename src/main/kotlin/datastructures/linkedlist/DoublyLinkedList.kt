@@ -1,6 +1,6 @@
 package edu.practice.datastructures.linkedlist
 
-class DoublyLinkedList<E> {
+class DoublyLinkedList<E>: LinkedList<E> {
 
     private data class Node<E>(val data: E, var prev: Node<E>? = null, var next: Node<E>? = null)
 
@@ -9,19 +9,19 @@ class DoublyLinkedList<E> {
     private var first: Node<E>? = null
     private var last: Node<E>? = null
 
-    fun size(): Int = size
+    override fun size(): Int = size
 
-    fun isEmpty(): Boolean = (size == 0)
+    override fun isEmpty(): Boolean = (size == 0)
 
-    fun getFirst(): E {
+    override fun getFirst(): E {
         return first?.data ?: throw NoSuchElementException("Linked List is Empty")
     }
 
-    fun getLast(): E {
+    override fun getLast(): E {
         return last?.data ?: throw NoSuchElementException("Linked List is Empty")
     }
 
-    fun addFirst(item: E) {
+    override fun addFirst(item: E) {
         val newNode = Node(item)
         newNode.next = first
         first = newNode
@@ -33,7 +33,7 @@ class DoublyLinkedList<E> {
         size++
     }
 
-    fun addLast(item: E) {
+    override fun addLast(item: E) {
         val newNode = Node(item, last)
 
         if (last == null) { // Empty DLL condition
@@ -46,7 +46,7 @@ class DoublyLinkedList<E> {
         size++
     }
 
-    fun removeFirst(): E {
+    override fun removeFirst(): E {
         val item = getFirst()
 
         first = first?.next
@@ -60,7 +60,7 @@ class DoublyLinkedList<E> {
         return item
     }
 
-    fun removeLast(): E {
+    override fun removeLast(): E {
         val item = getLast()
 
         last = last?.prev
@@ -80,7 +80,7 @@ class DoublyLinkedList<E> {
         } ?: false
     }
 
-    fun contains(item: E): Boolean {
+    override fun contains(item: E): Boolean {
         return existsInList(item)
     }
 }

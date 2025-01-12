@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test
 
 class DoublyLinkedListTest {
 
-    private lateinit var integerDLL: DoublyLinkedList<Int>
+    private lateinit var integerDLL: LinkedList<Int>
 
     @BeforeEach
     fun setup() {

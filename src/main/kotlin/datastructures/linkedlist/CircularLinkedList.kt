@@ -1,7 +1,7 @@
 package edu.practice.datastructures.linkedlist
 
 
-class CircularLinkedList<E> {
+class CircularLinkedList<E>: LinkedList<E> {
 
     private data class Node<E>(val data: E, var next: Node<E>? = null)
 
@@ -10,19 +10,19 @@ class CircularLinkedList<E> {
     private var first: Node<E>? = null
     private var last: Node<E>? = null
 
-    fun size(): Int = size
+    override fun size(): Int = size
 
-    fun isEmpty(): Boolean = (size == 0)
+    override fun isEmpty(): Boolean = (size == 0)
 
-    fun getFirst(): E {
+    override fun getFirst(): E {
         return first?.data ?: throw NoSuchElementException("Linked List is Empty")
     }
 
-    fun getLast(): E {
+    override fun getLast(): E {
         return last?.data ?: throw NoSuchElementException("Linked List is Empty")
     }
 
-    fun addFirst(item: E) {
+    override fun addFirst(item: E) {
         val newNode = Node(item, first)
         first = newNode
 
@@ -34,7 +34,7 @@ class CircularLinkedList<E> {
         size++
     }
 
-    fun addLast(item: E) {
+    override fun addLast(item: E) {
         val newNode = Node(item)
 
         if (last == null) { // If list is empty
@@ -48,7 +48,7 @@ class CircularLinkedList<E> {
         size++
     }
 
-    fun removeFirst(): E {
+    override fun removeFirst(): E {
         val item = getFirst()
 
         if (first == first?.next) {
@@ -63,7 +63,7 @@ class CircularLinkedList<E> {
         return item
     }
 
-    fun removeLast(): E {
+    override fun removeLast(): E {
         val item = getLast()
 
         if (first == last) { // Only 1 element in the list
@@ -83,7 +83,7 @@ class CircularLinkedList<E> {
         return item
     }
 
-    fun contains(item: E): Boolean {
+    override fun contains(item: E): Boolean {
         if (first == null) {
             return false
         }

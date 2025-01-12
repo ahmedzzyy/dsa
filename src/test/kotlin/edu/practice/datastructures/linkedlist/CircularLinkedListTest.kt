@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test
 
 class CircularLinkedListTest {
 
-    private lateinit var integerCircularSLL: CircularLinkedList<Int>
+    private lateinit var integerCircularSLL: LinkedList<Int>
 
     @BeforeEach
     fun setup() {
