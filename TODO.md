@@ -5,7 +5,7 @@
 - [X] Linked List
 - [X] Heap, Priority Queue
 - [X] Trie
-- [ ] Hash Table
+- [X] Hash Table
 - [ ] Graph
 - [ ] Tree
 
