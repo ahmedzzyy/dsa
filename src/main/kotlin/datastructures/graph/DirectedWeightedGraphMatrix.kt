@@ -127,9 +127,7 @@ class DirectedWeightedGraphMatrix<V>(initialCapacity: Int = 5): DirectedWeighted
         return neighbors
     }
 
-    override fun getVertices(): Set<V> {
-        return vertexMap.keys
-    }
+    override fun getVertices(): Set<V> = vertexMap.keys
 
     override fun getEdges(): Set<Pair<V, V>> {
         val edges: MutableSet<Pair<V, V>> = hashSetOf()
@@ -141,7 +139,7 @@ class DirectedWeightedGraphMatrix<V>(initialCapacity: Int = 5): DirectedWeighted
                     val v = vertexMap.entries.find { it.value == j }?.key
 
                     if (u != null && v != null) {
-                        edges.add(Pair(u, v))
+                        edges.add(u to v)
                     }
                 }
             }

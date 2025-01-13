@@ -6,7 +6,7 @@
 - [X] Heap, Priority Queue
 - [X] Trie
 - [X] Hash Table
-- [ ] Graph
+- [X] Graph
 - [ ] Tree
 
 ---
