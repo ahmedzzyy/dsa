@@ -5,7 +5,7 @@ interface Tree<E> {
     fun insert(item: E)
     fun delete(item: E): Boolean
 
-    fun root(): E
+    fun root(): E?
     fun isLeaf(item: E): Boolean
 
     fun preOrderTraversal(): List<E>
