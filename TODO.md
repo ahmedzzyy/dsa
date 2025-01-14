@@ -7,14 +7,14 @@
 - [X] Trie
 - [X] Hash Table
 - [X] Graph
-- [ ] Tree
+- [X] Tree
 
 ---
 
 ## 2. Implement Advanced Tree Structures
 - [X] Implement a Binary Tree
 - [X] Implement a Binary Search Tree (BST)
-- [X] Implement an AVL Tree (Self-balancing BST)
+- [ ] Implement an AVL Tree (Self-balancing BST) [Implemented previously in Java]
 - [ ] Implement a Red-Black Tree
 - [ ] Implement a B-Tree
 
