@@ -1,5 +1,8 @@
 package edu.practice.datastructures.tree
 
+import kotlin.math.floor
+import kotlin.math.log2
+
 class BinaryTree<E>: Tree<E> {
 
     private val tree: MutableList<E> = mutableListOf()
@@ -78,16 +81,7 @@ class BinaryTree<E>: Tree<E> {
     }
 
     override fun height(): Int {
-        fun heightFromIndex(index: Int): Int {
-            if (index >= size) return -1
-
-            val leftHeight = heightFromIndex(getLeftChildIndex(index))
-            val rightHeight = heightFromIndex(getRightChildIndex(index))
-
-            return maxOf(leftHeight, rightHeight) + 1
-        }
-
-        return heightFromIndex(0)
+        return floor(log2(size.toDouble())).toInt()
     }
 
     private fun getLeftChildIndex(parentIndex: Int): Int = ((2 * parentIndex) + 1)
