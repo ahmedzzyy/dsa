@@ -1,6 +1,6 @@
 package edu.practice.datastructures.linkedlist
 
-class SinglyLinkedList<E>: LinkedList<E> {
+open class SinglyLinkedList<E>: LinkedList<E> {
 
     private data class Node<E>(val data: E, var next: Node<E>? = null)
 
