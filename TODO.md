@@ -21,7 +21,7 @@
 ---
 
 ## 3. Deque (Double-Ended Queue)
-- [ ] Implement Deque with Array
+- [X] Implement Deque with Array [ Done with Array List due to reification ]
 - [ ] Implement Deque with Linked List
 
 ---
