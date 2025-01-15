@@ -70,7 +70,7 @@ You can pick one and create a pull request!
 - Implement additional data structures or algorithms.
 - Add or improve test cases.
 - Provide documentation or examples.
-- - Address tasks or enhancements listed in [`TODO.md`](./TODO.md).
+- Address tasks or enhancements listed in [`TODO.md`](./TODO.md).
 
 ### Pull Requests
 
