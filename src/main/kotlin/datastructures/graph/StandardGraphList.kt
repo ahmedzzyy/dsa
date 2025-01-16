@@ -90,7 +90,45 @@ class StandardGraphList<V>(
             neighbors.add(edge.destination)
         }
 
+        for ((v, e) in weightedGraph) {
+            if (vertex == v) {
+                continue // Skip the same vertex
+            }
+
+            if (e.any { it.destination == vertex }) {
+                if (neighbors.contains(v)) continue
+                neighbors.add(v)
+            }
+        }
+
         return neighbors
+    }
+
+    override fun getParents(vertex: V): Set<V> {
+        val parents: MutableSet<V> = hashSetOf()
+
+        for ((v, edges) in weightedGraph) {
+            if (vertex == v) {
+                continue // Skip the same vertex
+            }
+
+            if (edges.any { it.destination == vertex }) {
+                parents.add(v)
+            }
+        }
+
+        return parents
+    }
+
+    override fun getChildren(vertex: V): Set<V> {
+        val edges = weightedGraph[vertex] ?: throw IllegalArgumentException("Vertex not found in the graph")
+        val children: MutableSet<V> = hashSetOf()
+
+        for (edge in edges) {
+            children.add(edge.destination)
+        }
+
+        return children
     }
 
     override fun getInDegree(vertex: V): Int {

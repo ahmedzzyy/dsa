@@ -143,6 +143,39 @@ class StandardGraphMatrix<V>(
             if (weightedGraph[vertexIndex][i] != INF) {
                 // Add vertex to set after referencing the object from the map
                 vertexMap.entries.find { it.value == i }?.key?.let { neighbors.add(it) }
+                continue
+            }
+
+            if (weightedGraph[i][vertexIndex] != INF) {
+                vertexMap.entries.find { it.value == i }?.key?.let { neighbors.add(it) }
+            }
+        }
+
+        return neighbors
+    }
+
+    override fun getParents(vertex: V): Set<V> {
+        val vertexIndex = vertexMap[vertex] ?: throw IllegalArgumentException("Vertex not found in the graph")
+        val parents: MutableSet<V> = hashSetOf()
+
+        for (i in 0 until vertexCount) {
+            if (weightedGraph[i][vertexIndex] != INF) {
+                // Add vertex to set after referencing the object from the map
+                vertexMap.entries.find { it.value == i }?.key?.let { parents.add(it) }
+            }
+        }
+
+        return parents
+    }
+
+    override fun getChildren(vertex: V): Set<V> {
+        val vertexIndex = vertexMap[vertex] ?: throw IllegalArgumentException("Vertex not found in the graph")
+        val neighbors: MutableSet<V> = hashSetOf()
+
+        for (i in 0 until vertexCount) {
+            if (weightedGraph[vertexIndex][i] != INF) {
+                // Add vertex to set after referencing the object from the map
+                vertexMap.entries.find { it.value == i }?.key?.let { neighbors.add(it) }
             }
         }
 

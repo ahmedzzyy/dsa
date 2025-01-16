@@ -11,7 +11,7 @@ class UndirectedGraphMatrixTest {
 
     @BeforeEach
     fun setup() {
-        nameGraph = Graph.create(Graph.Companion.GRAPH.ADJ_MATRIX)
+        nameGraph = Graph.create(GraphType.ADJ_MATRIX)
     }
 
     @Test

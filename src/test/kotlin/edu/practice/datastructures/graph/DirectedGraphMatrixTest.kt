@@ -11,7 +11,7 @@ class DirectedGraphMatrixTest {
 
     @BeforeEach
     fun setup() {
-        nameGraph = Graph.create(Graph.Companion.GRAPH.ADJ_MATRIX, isDirected = true)
+        nameGraph = Graph.create(GraphType.ADJ_MATRIX, isDirected = true)
     }
 
     @Test
@@ -106,6 +106,30 @@ class DirectedGraphMatrixTest {
         nameGraph.addEdge(names[0], names[1], 2.5)
         nameGraph.addEdge(names[0], names[2], 2.5)
         assertThat(nameGraph.getNeighbors(names[0])).containsExactlyInAnyOrder(names[1], names[2])
+    }
+
+    @Test
+    fun getParentsOfVertex() {
+        val names = arrayOf("AAA", "BCD", "EFG")
+        for (name in names) {
+            nameGraph.addVertex(name)
+        }
+
+        nameGraph.addEdge(names[0], names[1], 2.5)
+        nameGraph.addEdge(names[2], names[1], 2.3)
+        assertThat(nameGraph.getParents(names[1])).containsExactlyInAnyOrder(names[0], names[2])
+    }
+
+    @Test
+    fun getChildrenOfVertex() {
+        val names = arrayOf("AAA", "BCD", "EFG")
+        for (name in names) {
+            nameGraph.addVertex(name)
+        }
+
+        nameGraph.addEdge(names[0], names[1], 2.5)
+        nameGraph.addEdge(names[0], names[2], 2.5)
+        assertThat(nameGraph.getChildren(names[0])).containsExactlyInAnyOrder(names[1], names[2])
     }
 
     @Test

@@ -3,18 +3,14 @@ package edu.practice.datastructures.graph
 interface Graph<V> {
 
     companion object {
-        enum class GRAPH {
-            ADJ_MATRIX, ADJ_LIST
-        }
-
         fun <V> create(
-            type: GRAPH = GRAPH.ADJ_LIST,
+            type: GraphType = GraphType.ADJ_LIST,
             initialCapacity: Int = 5,
             isDirected: Boolean = false
         ): Graph<V> {
             return when (type) {
-                GRAPH.ADJ_LIST -> StandardGraphList(initialCapacity, isDirected)
-                GRAPH.ADJ_MATRIX -> StandardGraphMatrix(initialCapacity, isDirected)
+                GraphType.ADJ_LIST -> StandardGraphList(initialCapacity, isDirected)
+                GraphType.ADJ_MATRIX -> StandardGraphMatrix(initialCapacity, isDirected)
             }
         }
     }
@@ -27,6 +23,9 @@ interface Graph<V> {
     fun hasEdge(u: V, v: V): Boolean
 
     fun getNeighbors(vertex: V): Set<V>
+    fun getParents(vertex: V): Set<V>
+    fun getChildren(vertex: V): Set<V>
+
     fun getWeight(u: V, v: V): Double
     fun getDegree(vertex: V): Int
     fun getInDegree(vertex: V): Int
