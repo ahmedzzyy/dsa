@@ -45,7 +45,23 @@ class DirectedWeightedGraphList<V>(initialCapacity: Int = 5): DirectedWeightedGr
         weightedGraph[u]?.removeAll { it.destination == v }
     }
 
-    override fun getEdge(u: V, v: V): Double {
+    override fun hasEdge(u: V, v: V): Boolean {
+        if (!weightedGraph.containsKey(u) || !weightedGraph.containsKey(v)) {
+            throw IllegalArgumentException("Both vertices must be in graph.")
+        }
+
+        val edges = weightedGraph[u] ?: return false
+
+        for (edge in edges) {
+            if (edge.destination == v) {
+                return true
+            }
+        }
+
+        return false
+    }
+
+    override fun getWeight(u: V, v: V): Double {
         if (!weightedGraph.containsKey(u) || !weightedGraph.containsKey(v)) {
             throw IllegalArgumentException("Both vertices must be in graph.")
         }
@@ -94,6 +110,8 @@ class DirectedWeightedGraphList<V>(initialCapacity: Int = 5): DirectedWeightedGr
 
         return inEdges.size
     }
+
+    override fun getDegree(vertex: V): Int = getOutDegree(vertex)
 
     override fun getVertices(): Set<V> = weightedGraph.keys
 

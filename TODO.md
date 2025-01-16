@@ -9,7 +9,14 @@
 
 ---
 
-## 2. Union-Find (Disjoint Set)
+## 2. Graph ( preferably using Adjacency List )
+- [ ] Implement Directed Graph (No Weights)
+- [ ] Implement Weighted Graph (Un Directed)
+- [ ] Implement a simple undirected graph with no weights
+
+---
+
+## 3. Union-Find (Disjoint Set)
 - [ ] Implement Basic Union-Find
 - [ ] Implement Path Compression
 - [ ] Implement Union by Rank

@@ -5,7 +5,7 @@ import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-class DirectedWeightedGraphListTest {
+class DirectedGraphListTest {
 
     private lateinit var nameGraph: DirectedWeightedGraph<String>
 
@@ -43,8 +43,8 @@ class DirectedWeightedGraphListTest {
         nameGraph.addVertex(name2)
 
         nameGraph.addEdge(name1, name2, 2.5)
-        assertThat(nameGraph.getEdge(name1, name2)).isEqualTo(2.5)
-        assertThat(nameGraph.getEdge(name2, name1)).isEqualTo((-1).toDouble())
+        assertThat(nameGraph.getWeight(name1, name2)).isEqualTo(2.5)
+        assertThat(nameGraph.hasEdge(name2, name1)).isFalse()
 
         assertThatThrownBy { nameGraph.addEdge("CCC", name1, 5.0) }
             .isInstanceOf(IllegalArgumentException::class.java)
@@ -74,10 +74,10 @@ class DirectedWeightedGraphListTest {
         nameGraph.addVertex(name2)
 
         nameGraph.addEdge(name1, name2, 2.5)
-        assertThat(nameGraph.getEdge(name1, name2)).isEqualTo(2.5)
+        assertThat(nameGraph.getWeight(name1, name2)).isEqualTo(2.5)
 
         nameGraph.removeEdge(name1, name2)
-        assertThat(nameGraph.getEdge(name1, name2)).isEqualTo((-1).toDouble())
+        assertThat(nameGraph.hasEdge(name1, name2)).isFalse()
 
         assertThatThrownBy { nameGraph.removeEdge("CCC", name1) }
             .isInstanceOf(IllegalArgumentException::class.java)

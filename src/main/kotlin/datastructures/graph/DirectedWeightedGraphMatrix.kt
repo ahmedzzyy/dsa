@@ -96,7 +96,24 @@ class DirectedWeightedGraphMatrix<V>(initialCapacity: Int = 5): DirectedWeighted
         }
     }
 
-    override fun getEdge(u: V, v: V): Double {
+    override fun hasEdge(u: V, v: V): Boolean {
+        if (!vertexMap.containsKey(u) || !vertexMap.containsKey(v)) {
+            throw IllegalArgumentException("Both vertices must be in graph")
+        }
+
+        val uIndex = vertexMap[u]
+        val vIndex = vertexMap[v]
+
+        if (uIndex != null && vIndex != null) { // Get returns Null - Int
+            if (weightedGraph[uIndex][vIndex] != INF) {
+                return true
+            }
+        }
+
+        return false
+    }
+
+    override fun getWeight(u: V, v: V): Double {
         if (!vertexMap.containsKey(u) || !vertexMap.containsKey(v)) {
             throw IllegalArgumentException("Both vertices must be in graph")
         }
@@ -173,6 +190,8 @@ class DirectedWeightedGraphMatrix<V>(initialCapacity: Int = 5): DirectedWeighted
 
         return inDegree
     }
+
+    override fun getDegree(vertex: V): Int = getOutDegree(vertex)
 
     private fun resize() {
         val newCapacity = weightedGraph.size * 2
