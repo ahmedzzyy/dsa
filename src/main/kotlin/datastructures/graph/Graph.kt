@@ -10,11 +10,11 @@ interface Graph<V> {
         fun <V> create(
             type: GRAPH = GRAPH.ADJ_LIST,
             initialCapacity: Int = 5,
-            directed: Boolean = false
+            isDirected: Boolean = false
         ): Graph<V> {
             return when (type) {
-                GRAPH.ADJ_LIST -> StandardGraphList(initialCapacity, directed)
-                GRAPH.ADJ_MATRIX -> StandardGraphMatrix(initialCapacity, directed)
+                GRAPH.ADJ_LIST -> StandardGraphList(initialCapacity, isDirected)
+                GRAPH.ADJ_MATRIX -> StandardGraphMatrix(initialCapacity, isDirected)
             }
         }
     }

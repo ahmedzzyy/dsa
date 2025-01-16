@@ -2,7 +2,7 @@ package edu.practice.datastructures.graph
 
 class StandardGraphMatrix<V>(
     initialCapacity: Int = 5,
-    val directed: Boolean = false
+    private val isDirected: Boolean = false
 ): Graph<V> {
 
     companion object {
@@ -83,7 +83,7 @@ class StandardGraphMatrix<V>(
 
         if (uIndex != null && vIndex != null) { // Get returns Null - Int
             weightedGraph[uIndex][vIndex] = weight
-            if (!directed) weightedGraph[vIndex][uIndex] = weight
+            if (!isDirected) weightedGraph[vIndex][uIndex] = weight
         }
     }
 
@@ -97,7 +97,7 @@ class StandardGraphMatrix<V>(
 
         if (uIndex != null && vIndex != null) { // Get returns Null - Int
             weightedGraph[uIndex][vIndex] = INF
-            if (!directed) weightedGraph[vIndex][uIndex] = INF
+            if (!isDirected) weightedGraph[vIndex][uIndex] = INF
         }
     }
 

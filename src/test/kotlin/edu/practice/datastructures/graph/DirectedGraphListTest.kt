@@ -11,7 +11,7 @@ class DirectedGraphListTest {
 
     @BeforeEach
     fun setup() {
-        nameGraph = Graph.create(Graph.Companion.GRAPH.ADJ_LIST, directed = true)
+        nameGraph = Graph.create(Graph.Companion.GRAPH.ADJ_LIST, isDirected = true)
     }
 
     @Test

@@ -2,7 +2,7 @@ package edu.practice.datastructures.graph
 
 class StandardGraphList<V>(
     initialCapacity: Int = 5,
-    val directed: Boolean = false
+    private val isDirected: Boolean = false
 ): Graph<V> {
 
     private class Edge<T>(val destination: T, val weight: Double)
@@ -38,7 +38,7 @@ class StandardGraphList<V>(
         }
 
         weightedGraph[u]?.add(Edge(v, weight))
-        if (!directed) weightedGraph[v]?.add(Edge(u, weight))
+        if (!isDirected) weightedGraph[v]?.add(Edge(u, weight))
     }
 
     override fun removeEdge(u: V, v: V) {
@@ -47,7 +47,7 @@ class StandardGraphList<V>(
         }
 
         weightedGraph[u]?.removeAll { it.destination == v }
-        if (!directed) weightedGraph[v]?.removeAll { it.destination == u }
+        if (!isDirected) weightedGraph[v]?.removeAll { it.destination == u }
     }
 
     override fun hasEdge(u: V, v: V): Boolean {
@@ -94,7 +94,7 @@ class StandardGraphList<V>(
     }
 
     override fun getInDegree(vertex: V): Int {
-        if (!directed) return getDegree(vertex) // Constant running time, better efficiency of out degree
+        if (!isDirected) return getDegree(vertex) // Constant running time, better efficiency of out degree
 
         var inDegree = 0
 
@@ -127,7 +127,7 @@ class StandardGraphList<V>(
 
         for ((vertex, edgeList) in weightedGraph) {
             for (edge in edgeList) {
-                if (!directed) { // Skip same pair if undirected
+                if (!isDirected) { // Skip same pair if undirected
                     if (edges.contains(edge.destination to vertex)) {
                         continue
                     }

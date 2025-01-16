@@ -11,7 +11,7 @@ class DirectedGraphMatrixTest {
 
     @BeforeEach
     fun setup() {
-        nameGraph = Graph.create(Graph.Companion.GRAPH.ADJ_MATRIX, directed = true)
+        nameGraph = Graph.create(Graph.Companion.GRAPH.ADJ_MATRIX, isDirected = true)
     }
 
     @Test
