@@ -7,11 +7,11 @@ import org.junit.jupiter.api.Test
 
 class DirectedGraphMatrixTest {
 
-    private lateinit var nameGraph: DirectedWeightedGraph<String>
+    private lateinit var nameGraph: Graph<String>
 
     @BeforeEach
     fun setup() {
-        nameGraph = DirectedWeightedGraphMatrix()
+        nameGraph = Graph.create(Graph.Companion.GRAPH.ADJ_MATRIX, directed = true)
     }
 
     @Test

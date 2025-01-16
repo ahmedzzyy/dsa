@@ -9,13 +9,6 @@
 
 ---
 
-## 2. Graph ( preferably using Adjacency List )
-- [ ] Implement Directed Graph (No Weights)
-- [ ] Implement Weighted Graph (Un Directed)
-- [ ] Implement a simple undirected graph with no weights
-
----
-
 ## 3. Union-Find (Disjoint Set)
 - [ ] Implement Basic Union-Find
 - [ ] Implement Path Compression
@@ -24,6 +17,23 @@
 ---
 
 ## ARCHIVE
+Descending order of completion
+
+### Graph ( preferably using Adjacency List -> Done with both: default being list )
+- Implemented all in 2 classes with 1 interface and 1 factory function
+- [X] Implement Directed Graph (No Weights)
+- [X] Implement Weighted Graph (Un Directed)
+- [X] Implement a simple undirected graph with no weights
+
+---
+
+### Deque (Double-Ended Queue)
+- [X] Implement Deque with Array
+  - Done with Array List due to reification
+- [X] Implement Deque with Linked List
+  - Done with a Singly Linked List Subclass
+
+---
 
 ### Migrate existing Java implementations to Kotlin
 - [X] Stack, Queue
@@ -33,11 +43,3 @@
 - [X] Hash Table
 - [X] Graph
 - [X] Tree
-
----
-
-### Deque (Double-Ended Queue)
-- [X] Implement Deque with Array
-  - Done with Array List due to reification
-- [X] Implement Deque with Linked List
-  - Done with a Singly Linked List Subclass

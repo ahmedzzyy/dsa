@@ -1,6 +1,9 @@
 package edu.practice.datastructures.graph
 
-class DirectedWeightedGraphList<V>(initialCapacity: Int = 5): DirectedWeightedGraph<V> {
+class StandardGraphList<V>(
+    initialCapacity: Int = 5,
+    val directed: Boolean = false
+): Graph<V> {
 
     private class Edge<T>(val destination: T, val weight: Double)
 
@@ -35,6 +38,7 @@ class DirectedWeightedGraphList<V>(initialCapacity: Int = 5): DirectedWeightedGr
         }
 
         weightedGraph[u]?.add(Edge(v, weight))
+        if (!directed) weightedGraph[v]?.add(Edge(u, weight))
     }
 
     override fun removeEdge(u: V, v: V) {
@@ -43,6 +47,7 @@ class DirectedWeightedGraphList<V>(initialCapacity: Int = 5): DirectedWeightedGr
         }
 
         weightedGraph[u]?.removeAll { it.destination == v }
+        if (!directed) weightedGraph[v]?.removeAll { it.destination == u }
     }
 
     override fun hasEdge(u: V, v: V): Boolean {
@@ -89,7 +94,9 @@ class DirectedWeightedGraphList<V>(initialCapacity: Int = 5): DirectedWeightedGr
     }
 
     override fun getInDegree(vertex: V): Int {
-        var outDegree = 0
+        if (!directed) return getDegree(vertex) // Constant running time, better efficiency of out degree
+
+        var inDegree = 0
 
         for ((key, edges) in weightedGraph) {
             if (vertex == key) {
@@ -97,12 +104,12 @@ class DirectedWeightedGraphList<V>(initialCapacity: Int = 5): DirectedWeightedGr
             }
 
             if (edges.any { it.destination == vertex }) {
-                outDegree++
+                inDegree++
                 continue
             }
         }
 
-        return outDegree
+        return inDegree
     }
 
     override fun getOutDegree(vertex: V): Int {
@@ -120,6 +127,11 @@ class DirectedWeightedGraphList<V>(initialCapacity: Int = 5): DirectedWeightedGr
 
         for ((vertex, edgeList) in weightedGraph) {
             for (edge in edgeList) {
+                if (!directed) { // Skip same pair if undirected
+                    if (edges.contains(edge.destination to vertex)) {
+                        continue
+                    }
+                }
                 edges.add(vertex to edge.destination)
             }
         }

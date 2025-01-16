@@ -5,13 +5,13 @@ import org.assertj.core.api.Assertions.assertThatThrownBy
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
-class DirectedGraphListTest {
+class UndirectedGraphMatrixTest {
 
     private lateinit var nameGraph: Graph<String>
 
     @BeforeEach
     fun setup() {
-        nameGraph = Graph.create(Graph.Companion.GRAPH.ADJ_LIST, directed = true)
+        nameGraph = Graph.create(Graph.Companion.GRAPH.ADJ_MATRIX)
     }
 
     @Test
@@ -42,11 +42,11 @@ class DirectedGraphListTest {
         nameGraph.addVertex(name1)
         nameGraph.addVertex(name2)
 
-        nameGraph.addEdge(name1, name2, 2.5)
-        assertThat(nameGraph.getWeight(name1, name2)).isEqualTo(2.5)
-        assertThat(nameGraph.hasEdge(name2, name1)).isFalse()
+        nameGraph.addEdge(name1, name2)
+        assertThat(nameGraph.hasEdge(name1, name2)).isTrue()
+        assertThat(nameGraph.hasEdge(name2, name1)).isTrue()
 
-        assertThatThrownBy { nameGraph.addEdge("CCC", name1, 5.0) }
+        assertThatThrownBy { nameGraph.addEdge("CCC", name1) }
             .isInstanceOf(IllegalArgumentException::class.java)
             .hasMessageContaining("Both vertices must be in graph.")
     }
@@ -75,13 +75,27 @@ class DirectedGraphListTest {
 
         nameGraph.addEdge(name1, name2, 2.5)
         assertThat(nameGraph.getWeight(name1, name2)).isEqualTo(2.5)
+        assertThat(nameGraph.getWeight(name2, name1)).isEqualTo(2.5)
 
         nameGraph.removeEdge(name1, name2)
         assertThat(nameGraph.hasEdge(name1, name2)).isFalse()
+        assertThat(nameGraph.hasEdge(name2, name1)).isFalse()
 
         assertThatThrownBy { nameGraph.removeEdge("CCC", name1) }
             .isInstanceOf(IllegalArgumentException::class.java)
             .hasMessageContaining("Both vertices must be in graph.")
+    }
+
+    @Test
+    fun graphResizesAfterLoadExceed() {
+        val names = arrayOf("A", "B", "C", "D", "E", "F", "G")
+
+        for (name in names) {
+            nameGraph.addVertex(name)
+        }
+
+        assertThat(nameGraph.size()).isEqualTo(names.size)
+        assertThat(nameGraph.containsVertex(names[names.size - 1])).isTrue()
     }
     
     @Test
@@ -126,17 +140,15 @@ class DirectedGraphListTest {
     }
 
     @Test
-    fun getDegreeInAndOutOfTheVertex() {
+    fun getDegreeOfTheVertex() {
         val names = arrayOf("AAA", "BCD", "EFG")
         for (name in names) {
             nameGraph.addVertex(name)
         }
 
         nameGraph.addEdge(names[0], names[1], 3.6)
-        nameGraph.addEdge(names[0], names[2], 1.8)
-        nameGraph.addEdge(names[2], names[0], 2.5)
+        nameGraph.addEdge(names[2], names[0], 1.8)
 
-        assertThat(nameGraph.getInDegree(names[0])).isEqualTo(1)
-        assertThat(nameGraph.getOutDegree(names[0])).isEqualTo(2)
+        assertThat(nameGraph.getDegree(names[0])).isEqualTo(2)
     }
 }

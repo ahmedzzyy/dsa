@@ -1,6 +1,9 @@
 package edu.practice.datastructures.graph
 
-class DirectedWeightedGraphMatrix<V>(initialCapacity: Int = 5): DirectedWeightedGraph<V> {
+class StandardGraphMatrix<V>(
+    initialCapacity: Int = 5,
+    val directed: Boolean = false
+): Graph<V> {
 
     companion object {
         private const val INF = Double.POSITIVE_INFINITY
@@ -80,6 +83,7 @@ class DirectedWeightedGraphMatrix<V>(initialCapacity: Int = 5): DirectedWeighted
 
         if (uIndex != null && vIndex != null) { // Get returns Null - Int
             weightedGraph[uIndex][vIndex] = weight
+            if (!directed) weightedGraph[vIndex][uIndex] = weight
         }
     }
 
@@ -93,6 +97,7 @@ class DirectedWeightedGraphMatrix<V>(initialCapacity: Int = 5): DirectedWeighted
 
         if (uIndex != null && vIndex != null) { // Get returns Null - Int
             weightedGraph[uIndex][vIndex] = INF
+            if (!directed) weightedGraph[vIndex][uIndex] = INF
         }
     }
 
@@ -156,6 +161,9 @@ class DirectedWeightedGraphMatrix<V>(initialCapacity: Int = 5): DirectedWeighted
                     val v = vertexMap.entries.find { it.value == j }?.key
 
                     if (u != null && v != null) {
+                        if (edges.contains(v to u)) {
+                            continue
+                        }
                         edges.add(u to v)
                     }
                 }
