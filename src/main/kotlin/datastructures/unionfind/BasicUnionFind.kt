@@ -1,9 +1,9 @@
 package edu.practice.datastructures.unionfind
 
-class BasicUnionFind<E>: UnionFind<E> {
+open class BasicUnionFind<E>: UnionFind<E> {
 
     private val indexOfElementLookup: MutableMap<E, Int> = HashMap()
-    private lateinit var parentByIndex: Array<Int>
+    internal lateinit var parentByIndex: Array<Int>
     private var _size: Int = 0
 
     override fun makeSet(vararg items: E) {
@@ -18,7 +18,7 @@ class BasicUnionFind<E>: UnionFind<E> {
         _size = items.size
     }
 
-    private fun findParentIndex(element: E): Int {
+    internal fun findParentIndex(element: E): Int {
         if (!indexOfElementLookup.containsKey(element)) {
             throw NoSuchElementException("No such element in UnionFind sets")
         }
