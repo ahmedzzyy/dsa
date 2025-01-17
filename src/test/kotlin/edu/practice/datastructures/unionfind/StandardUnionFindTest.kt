@@ -11,20 +11,20 @@ class StandardUnionFindTest {
 
     @BeforeEach
     fun setup() {
-        intUnionFind = StandardUnionFind()
+        intUnionFind = unionFindOf()
     }
 
     // Count Set and size are also tested here
     @Test
     fun ufIsInitialisedWithMultipleElements() {
-        intUnionFind.makeSet(1, 2, 3, 4, 5, 6)
+        intUnionFind = unionFindOf(1, 2, 3, 4, 5, 6)
         assertThat(intUnionFind.size).isEqualTo(6)
         assertThat(intUnionFind.countSets()).isEqualTo(6)
     }
 
     @Test
     fun findRootOfAnElement() {
-        intUnionFind.makeSet(2, 3)
+        intUnionFind = unionFindOf(2, 3)
 
         intUnionFind.union(3, 2) // 2 -> 3 (Rank Based)
         assertThat(intUnionFind.find(2)).isEqualTo(3)
@@ -32,7 +32,7 @@ class StandardUnionFindTest {
 
     @Test
     fun unionSetsAndCheckIfPathsCompressedOneLevel() {
-        intUnionFind.makeSet(1, 2, 3, 4, 5, 6)
+        intUnionFind = unionFindOf(1, 2, 3, 4, 5, 6)
 
         intUnionFind.union(2, 3) // 3 -> 2
         intUnionFind.union(4, 5) // 5 -> 4
@@ -53,7 +53,7 @@ class StandardUnionFindTest {
 
     @Test
     fun checkIfTwoElementsAreConnected() {
-        intUnionFind.makeSet(1, 2, 3, 4, 5, 6)
+        intUnionFind = unionFindOf(1, 2, 3, 4, 5, 6)
 
         intUnionFind.union(3, 2)
         intUnionFind.union(5, 4)
@@ -69,7 +69,7 @@ class StandardUnionFindTest {
 
     @Test
     fun handleNoElementInUnionFindException() {
-        intUnionFind.makeSet(1, 2)
+        intUnionFind = unionFindOf(1, 2)
 
         assertThatThrownBy { intUnionFind.areConnected(5, 6) }
             .isInstanceOf(NoSuchElementException::class.java)
