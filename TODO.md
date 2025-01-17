@@ -11,7 +11,7 @@
 
 ## 3. Union-Find (Disjoint Set)
 - [X] Implement Basic Union-Find
-- [ ] Implement Path Compression
+- [X] Implement Path Compression
 - [X] Implement Union by Rank
 
 ---

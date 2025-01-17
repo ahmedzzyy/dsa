@@ -23,12 +23,18 @@ open class BasicUnionFind<E>: UnionFind<E> {
             throw NoSuchElementException("No such element in UnionFind sets")
         }
 
-        var parentIndex = indexOfElementLookup[element] ?: 0
-        while (parentIndex != parentByIndex[parentIndex]) {
-            parentIndex = parentByIndex[parentIndex]
+        val index = indexOfElementLookup[element] ?: 0
+
+        return findParentIndexByIndex(index)
+    }
+
+    internal open fun findParentIndexByIndex(index: Int): Int {
+        var current = index
+        while (current != parentByIndex[current]) {
+            current = parentByIndex[current]
         }
 
-        return parentIndex
+        return current
     }
 
     override fun find(element: E): E {
