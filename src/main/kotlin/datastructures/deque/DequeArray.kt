@@ -55,7 +55,7 @@ class DequeArray<E>(initialCapacity: Int = DEFAULT_INITIAL_CAPACITY): Deque<E> {
     override fun peekFirst(): E {
         val item: E
         try {
-            item = deque.first
+            item = deque.first()
         } catch (e: NoSuchElementException) {
             throw NoSuchElementException("Cannot get first element when deque is empty")
         }
@@ -66,7 +66,7 @@ class DequeArray<E>(initialCapacity: Int = DEFAULT_INITIAL_CAPACITY): Deque<E> {
     override fun peekLast(): E {
         val item: E
         try {
-            item = deque.last
+            item = deque.last()
         } catch (e: NoSuchElementException) {
             throw NoSuchElementException("Cannot get last element when deque is empty")
         }
