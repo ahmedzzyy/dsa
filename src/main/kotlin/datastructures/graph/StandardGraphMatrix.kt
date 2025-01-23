@@ -236,12 +236,17 @@ class StandardGraphMatrix<V>(
 
     private fun resize() {
         val newCapacity = weightedGraph.size * 2
-        val oldMatrix = weightedGraph
 
-        weightedGraph = Array(newCapacity) { DoubleArray(newCapacity) { INF } }
+        weightedGraph = weightedGraph.map { row ->
+            row.copyOf(newCapacity).apply {
+                for (i in row.size until newCapacity) {
+                    this[i] = INF
+                }
+            }
+        }.toTypedArray()
 
-        for (i in 0 until vertexCount) {
-            weightedGraph[i] = oldMatrix[i].copyOf(vertexCount)
+        for (i in weightedGraph.size until newCapacity) {
+            weightedGraph += DoubleArray(newCapacity) { INF }
         }
     }
 
