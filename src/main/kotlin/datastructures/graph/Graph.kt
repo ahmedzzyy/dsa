@@ -23,10 +23,10 @@ interface Graph<V> {
     fun hasEdge(u: V, v: V): Boolean
 
     /**
-     * @return returns a list of all the connected vertices with their its distance ( number of edges )
+     * @return returns a list of all the connected vertices with their its distance ( including weights )
      * from source vertex
      */
-    fun bfsTraversal(source: V): List<Pair<V, Int>>
+    fun bfsTraversal(source: V): List<Pair<V, Double>>
 
     fun getNeighbors(vertex: V): Set<V>
     fun getParents(vertex: V): Set<V>

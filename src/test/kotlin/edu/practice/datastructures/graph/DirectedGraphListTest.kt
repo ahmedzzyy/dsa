@@ -178,10 +178,10 @@ class DirectedGraphListTest {
         nameGraph.addEdge(names[2], names[4]) // not in BFS - see 2 to 0 for reason
 
         assertThat(nameGraph.bfsTraversal(names[0])).containsExactlyInAnyOrder(
-            names[0] to 0,
-            names[1] to 1,
-            names[3] to 2,
-            names[5] to 3
+            names[0] to 0.0,
+            names[1] to 1.0,
+            names[3] to 2.0,
+            names[5] to 3.0
         )
     }
 }

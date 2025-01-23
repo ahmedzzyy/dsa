@@ -166,12 +166,12 @@ class UndirectedGraphMatrixTest {
         nameGraph.addEdge(names[2], names[4]) // 2 w.r.t. 0th
 
         assertThat(nameGraph.bfsTraversal(names[0])).containsExactlyInAnyOrder(
-            names[0] to 0,
-            names[1] to 1,
-            names[2] to 1,
-            names[3] to 2,
-            names[4] to 2,
-            names[5] to 3
+            names[0] to 0.0,
+            names[1] to 1.0,
+            names[2] to 1.0,
+            names[3] to 2.0,
+            names[4] to 2.0,
+            names[5] to 3.0
         )
     }
 }

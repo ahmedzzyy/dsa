@@ -118,16 +118,16 @@ class StandardGraphMatrix<V>(
         return false
     }
 
-    override fun bfsTraversal(source: V): List<Pair<V, Int>> {
+    override fun bfsTraversal(source: V): List<Pair<V, Double>> {
         if (!vertexMap.containsKey(source)) {
             throw IllegalArgumentException("Source vertex must be in the graph")
         }
 
         val visitedSet: MutableSet<V> = mutableSetOf()
-        val result: MutableList<Pair<V, Int>> = mutableListOf()
-        val visitingQueue: ArrayDeque<Pair<V, Int>> = ArrayDeque()
+        val result: MutableList<Pair<V, Double>> = mutableListOf()
+        val visitingQueue: ArrayDeque<Pair<V, Double>> = ArrayDeque()
 
-        visitingQueue.addLast(source to 0)
+        visitingQueue.addLast(source to (0).toDouble())
         visitedSet.add(source)
 
         while (visitingQueue.isNotEmpty()) {
@@ -142,7 +142,7 @@ class StandardGraphMatrix<V>(
             for (neighbor in neighbors) {
                 if (!visitedSet.contains(neighbor)) {
                     visitedSet.add(neighbor)
-                    visitingQueue.addLast(neighbor to (distance + 1))
+                    visitingQueue.addLast(neighbor to (distance + getWeight(currentVertex, neighbor)))
                 }
             }
         }
