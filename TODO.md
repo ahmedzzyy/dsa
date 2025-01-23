@@ -12,7 +12,7 @@
 - [X] Implement a Binary Tree
 - [X] Implement a Binary Search Tree (BST)
 - [ ] Implement an AVL Tree (Self-balancing BST) [Implemented previously in Java]
-- [ ] Implement a Red-Black Tree
+- [X] Implement a Red-Black Tree
 - [ ] Implement a B-Tree
 
 ## 2. Graph Algorithms
