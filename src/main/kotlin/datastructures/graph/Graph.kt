@@ -22,6 +22,12 @@ interface Graph<V> {
     fun removeEdge(u: V, v: V)
     fun hasEdge(u: V, v: V): Boolean
 
+    /**
+     * @return returns a list of all the connected vertices with their its distance ( number of edges )
+     * from source vertex
+     */
+    fun bfsTraversal(source: V): List<Pair<V, Int>>
+
     fun getNeighbors(vertex: V): Set<V>
     fun getParents(vertex: V): Set<V>
     fun getChildren(vertex: V): Set<V>
