@@ -118,6 +118,38 @@ class StandardGraphMatrix<V>(
         return false
     }
 
+    override fun bfsTraversal(source: V): List<Pair<V, Int>> {
+        if (!vertexMap.containsKey(source)) {
+            throw IllegalArgumentException("Source vertex must be in the graph")
+        }
+
+        val visitedSet: MutableSet<V> = mutableSetOf()
+        val result: MutableList<Pair<V, Int>> = mutableListOf()
+        val visitingQueue: ArrayDeque<Pair<V, Int>> = ArrayDeque()
+
+        visitingQueue.addLast(source to 0)
+        visitedSet.add(source)
+
+        while (visitingQueue.isNotEmpty()) {
+            val (currentVertex, distance) = visitingQueue.removeFirst()
+            result.add(currentVertex to distance)
+
+            val neighbors = if (isDirected) {
+                getChildren(currentVertex)
+            } else {
+                getNeighbors(currentVertex)
+            }
+            for (neighbor in neighbors) {
+                if (!visitedSet.contains(neighbor)) {
+                    visitedSet.add(neighbor)
+                    visitingQueue.addLast(neighbor to (distance + 1))
+                }
+            }
+        }
+
+        return result
+    }
+
     override fun getWeight(u: V, v: V): Double {
         if (!vertexMap.containsKey(u) || !vertexMap.containsKey(v)) {
             throw IllegalArgumentException("Both vertices must be in graph")

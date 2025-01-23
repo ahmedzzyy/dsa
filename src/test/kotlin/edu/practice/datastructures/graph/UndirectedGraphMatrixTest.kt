@@ -151,4 +151,27 @@ class UndirectedGraphMatrixTest {
 
         assertThat(nameGraph.getDegree(names[0])).isEqualTo(2)
     }
+
+    @Test
+    fun generateBFSTraversal() {
+        val names = arrayOf("AAA", "BCD", "EFG", "HIJ", "KLM", "NOP")
+        for (name in names) {
+            nameGraph.addVertex(name)
+        }
+
+        nameGraph.addEdge(names[0], names[1]) // 1 w.r.t. 0th
+        nameGraph.addEdge(names[2], names[0]) // 2 to 0 - 1 w.r.t. 0th
+        nameGraph.addEdge(names[3], names[5]) // initially not connected with 0 later 3 w.r.t. 0th
+        nameGraph.addEdge(names[1], names[3]) // 2 w.r.t. 0th
+        nameGraph.addEdge(names[2], names[4]) // 2 w.r.t. 0th
+
+        assertThat(nameGraph.bfsTraversal(names[0])).containsExactlyInAnyOrder(
+            names[0] to 0,
+            names[1] to 1,
+            names[2] to 1,
+            names[3] to 2,
+            names[4] to 2,
+            names[5] to 3
+        )
+    }
 }

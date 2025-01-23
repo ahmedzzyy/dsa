@@ -17,7 +17,7 @@
 
 ## 2. Graph Algorithms
 - [ ] Graph Traversals
-  - [ ] Breadth-First Search (BFS)
+  - [X] Breadth-First Search (BFS)
   - [ ] Depth-First Search (DFS)
 - [ ] Topological Sort
 - [ ] Strongly Connected Components
