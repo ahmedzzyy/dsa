@@ -28,6 +28,11 @@ interface Graph<V> {
      */
     fun bfsTraversal(source: V): List<Pair<V, Double>>
 
+    /**
+     * @return returns map of connected vertices with (discoveryTime, finishTime) in a pair
+     */
+    fun dfsTraversal(): Map<V, Pair<Int, Int>>
+
     fun getNeighbors(vertex: V): Set<V>
     fun getParents(vertex: V): Set<V>
     fun getChildren(vertex: V): Set<V>
