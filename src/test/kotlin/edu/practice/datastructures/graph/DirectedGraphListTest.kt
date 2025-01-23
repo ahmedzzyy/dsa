@@ -210,4 +210,21 @@ class DirectedGraphListTest {
 
         assertThat(nameGraph.dfsTraversal()).isEqualTo(resultMap)
     }
+
+    @Test
+    fun sourceOfBFSTraversalNotPresentEdgeCase() {
+        val names = arrayOf("AAA", "BCD", "EFG")
+        for (name in names) {
+            nameGraph.addVertex(name)
+        }
+
+        assertThatThrownBy { nameGraph.bfsTraversal("ZXY") }
+            .isInstanceOf(IllegalArgumentException::class.java)
+            .hasMessageContaining("Source vertex must be in the graph")
+    }
+
+    @Test
+    fun traversalDFSOnEmptyGraphEdgeCase() {
+        assertThat(nameGraph.dfsTraversal().isEmpty()).isTrue()
+    }
 }
