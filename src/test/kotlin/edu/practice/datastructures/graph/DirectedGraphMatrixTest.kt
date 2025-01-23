@@ -196,4 +196,30 @@ class DirectedGraphMatrixTest {
             names[5] to 3.0
         )
     }
+
+    @Test
+    fun generateDFSTraversal() {
+        val names = arrayOf("AAA", "BCD", "EFG", "HIJ", "KLM", "NOP")
+        for (name in names) {
+            nameGraph.addVertex(name)
+        }
+
+        nameGraph.addEdge(names[0], names[1])
+        nameGraph.addEdge(names[2], names[0])
+        nameGraph.addEdge(names[3], names[5])
+        nameGraph.addEdge(names[1], names[3])
+        nameGraph.addEdge(names[2], names[4])
+
+        val resultMap = mapOf(
+            // starts from 0th  i.e. "AAA"
+            names[0] to (1 to 8),
+            names[1] to (2 to 7), // 0 -> 1
+            names[3] to (3 to 6), // 1 -> 3
+            names[5] to (4 to 5), // 3 -> 5
+            names[2] to (9 to 12), // standalone 2 from `for`
+            names[4] to (10 to 11) // 2 -> 4
+        )
+
+        assertThat(nameGraph.dfsTraversal()).isEqualTo(resultMap)
+    }
 }

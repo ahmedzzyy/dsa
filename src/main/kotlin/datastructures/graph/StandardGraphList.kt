@@ -98,6 +98,44 @@ class StandardGraphList<V>(
         return result
     }
 
+    override fun dfsTraversal(): Map<V, Pair<Int, Int>> {
+        val visitedSet: MutableSet<V> = mutableSetOf()
+        val result: MutableMap<V, Pair<Int, Int>> = mutableMapOf()
+        var time = 0
+
+        fun dfsVisit(vertex: V) {
+            time += 1
+            val discoveryTime = time
+            result[vertex] = discoveryTime to 0
+            visitedSet.add(vertex)
+
+            val neighbors = if (isDirected) {
+                getChildren(vertex)
+            } else {
+                getNeighbors(vertex)
+            }
+
+            for (neighbor in neighbors) {
+                if (!visitedSet.contains(neighbor)) {
+                    visitedSet.add(neighbor)
+                    dfsVisit(neighbor)
+                }
+            }
+
+            time += 1
+            val finishTime = time
+            result[vertex] = discoveryTime to finishTime
+        }
+
+        for ((vertex, _) in weightedGraph) {
+            if (!visitedSet.contains(vertex)) {
+                dfsVisit(vertex)
+            }
+        }
+
+        return result
+    }
+
     override fun getWeight(u: V, v: V): Double {
         if (!weightedGraph.containsKey(u) || !weightedGraph.containsKey(v)) {
             throw IllegalArgumentException("Both vertices must be in graph.")

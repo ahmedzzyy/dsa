@@ -16,9 +16,9 @@
 - [ ] Implement a B-Tree
 
 ## 2. Graph Algorithms
-- [ ] Graph Traversals
+- [X] Graph Traversals
   - [X] Breadth-First Search (BFS)
-  - [ ] Depth-First Search (DFS)
+  - [X] Depth-First Search (DFS)
 - [ ] Topological Sort
 - [ ] Strongly Connected Components
   

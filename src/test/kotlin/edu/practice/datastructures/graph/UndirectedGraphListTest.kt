@@ -162,4 +162,30 @@ class UndirectedGraphListTest {
             names[5] to 3.0
         )
     }
+
+    @Test
+    fun generateDFSTraversal() {
+        val names = arrayOf("AAA", "BCD", "EFG", "HIJ", "KLM", "NOP")
+        for (name in names) {
+            nameGraph.addVertex(name)
+        }
+
+        nameGraph.addEdge(names[0], names[1])
+        nameGraph.addEdge(names[2], names[0])
+        nameGraph.addEdge(names[3], names[5])
+        nameGraph.addEdge(names[1], names[3])
+        nameGraph.addEdge(names[2], names[4])
+
+        val resultMap = mapOf(
+            // starts from 3rd  i.e. "HIJ"
+            names[3] to (1 to 12),
+            names[1] to (2 to 9), // 3 <-> 1
+            names[0] to (3 to 8), // 1 <-> 0
+            names[2] to (4 to 7), // 0 <-> 2
+            names[4] to (5 to 6), // 2 <-> 4
+            names[5] to (10 to 11) // 3 <-> 5
+        )
+
+        assertThat(nameGraph.dfsTraversal()).isEqualTo(resultMap)
+    }
 }
