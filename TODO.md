@@ -19,8 +19,8 @@
 - [X] Graph Traversals
   - [X] Breadth-First Search (BFS)
   - [X] Depth-First Search (DFS)
-- [ ] Topological Sort
-- [ ] Strongly Connected Components
+- [X] Topological Sort
+- [X] Strongly Connected Components
   
 - ### Minimum Spanning Trees
 - [ ] Kruskal’s Algorithm
