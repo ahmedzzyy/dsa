@@ -239,4 +239,22 @@ class DirectedGraphMatrixTest {
     fun traversalDFSOnEmptyGraphEdgeCase() {
         assertThat(nameGraph.dfsTraversal().isEmpty()).isTrue()
     }
+
+    @Test
+    fun getTransposeOfGraph() {
+        val names = arrayOf("AAA", "BCD", "EFG", "HIJ")
+        for (name in names) {
+            nameGraph.addVertex(name)
+        }
+
+        nameGraph.addEdge(names[0], names[1])
+        nameGraph.addEdge(names[2], names[0])
+        nameGraph.addEdge(names[1], names[3])
+
+        val transposedGraph = nameGraph.transpose()
+        for ((source, destination) in nameGraph.getEdges()) {
+            assertThat(transposedGraph.hasEdge(source, destination)).isFalse()
+            assertThat(transposedGraph.hasEdge(destination, source)).isTrue()
+        }
+    }
 }

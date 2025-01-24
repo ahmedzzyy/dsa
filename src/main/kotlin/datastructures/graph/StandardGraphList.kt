@@ -2,13 +2,16 @@ package edu.practice.datastructures.graph
 
 class StandardGraphList<V>(
     initialCapacity: Int = 5,
-    private val isDirected: Boolean = false
+    val directed: Boolean = false
 ): Graph<V> {
 
     private class Edge<T>(val destination: T, val weight: Double)
 
     private val weightedGraph: MutableMap<V, MutableList<Edge<V>>> = HashMap(initialCapacity)
     private var vertexCount = 0
+
+    override val isDirected: Boolean
+        get() = directed
 
     override fun addVertex(vertex: V) {
         if (weightedGraph.containsKey(vertex)) {
@@ -38,7 +41,7 @@ class StandardGraphList<V>(
         }
 
         weightedGraph[u]?.add(Edge(v, weight))
-        if (!isDirected) weightedGraph[v]?.add(Edge(u, weight))
+        if (!directed) weightedGraph[v]?.add(Edge(u, weight))
     }
 
     override fun removeEdge(u: V, v: V) {
@@ -47,7 +50,7 @@ class StandardGraphList<V>(
         }
 
         weightedGraph[u]?.removeAll { it.destination == v }
-        if (!isDirected) weightedGraph[v]?.removeAll { it.destination == u }
+        if (!directed) weightedGraph[v]?.removeAll { it.destination == u }
     }
 
     override fun hasEdge(u: V, v: V): Boolean {
@@ -82,7 +85,7 @@ class StandardGraphList<V>(
             val (currentVertex, distance) = visitingQueue.removeFirst()
             result.add(currentVertex to distance)
 
-            val neighbors = if (isDirected) {
+            val neighbors = if (directed) {
                 getChildren(currentVertex)
             } else {
                 getNeighbors(currentVertex)
@@ -109,7 +112,7 @@ class StandardGraphList<V>(
             result[vertex] = discoveryTime to 0
             visitedSet.add(vertex)
 
-            val neighbors = if (isDirected) {
+            val neighbors = if (directed) {
                 getChildren(vertex)
             } else {
                 getNeighbors(vertex)
@@ -134,6 +137,33 @@ class StandardGraphList<V>(
         }
 
         return result
+    }
+
+    override fun transpose(): Graph<V> {
+        val transposedGraph: Graph<V> = StandardGraphList(
+            initialCapacity = this.weightedGraph.size,
+            directed = this.directed
+        )
+
+        for (vertex in getVertices()) {
+            transposedGraph.addVertex(vertex)
+        }
+
+        if (!directed) { // Undirected Graph - Cloning optimization
+            for ((vertex, edges) in weightedGraph) {
+                for (edge in edges) {
+                    transposedGraph.addEdge(vertex, edge.destination, edge.weight)
+                }
+            }
+        } else { // Directed Graph
+            for ((vertex, edges) in weightedGraph) {
+                for (edge in edges) {
+                    transposedGraph.addEdge(edge.destination, vertex, edge.weight)
+                }
+            }
+        }
+
+        return transposedGraph
     }
 
     override fun getWeight(u: V, v: V): Double {
@@ -202,7 +232,7 @@ class StandardGraphList<V>(
     }
 
     override fun getInDegree(vertex: V): Int {
-        if (!isDirected) return getDegree(vertex) // Constant running time, better efficiency of out degree
+        if (!directed) return getDegree(vertex) // Constant running time, better efficiency of out degree
 
         var inDegree = 0
 
@@ -235,7 +265,7 @@ class StandardGraphList<V>(
 
         for ((vertex, edgeList) in weightedGraph) {
             for (edge in edgeList) {
-                if (!isDirected) { // Skip same pair if undirected
+                if (!directed) { // Skip same pair if undirected
                     if (edges.contains(edge.destination to vertex)) {
                         continue
                     }

@@ -2,7 +2,7 @@ package edu.practice.datastructures.graph
 
 class StandardGraphMatrix<V>(
     initialCapacity: Int = 5,
-    private val isDirected: Boolean = false
+    private val directed: Boolean = false
 ): Graph<V> {
 
     companion object {
@@ -13,6 +13,9 @@ class StandardGraphMatrix<V>(
     private var vertexMap: MutableMap<V, Int> = hashMapOf()
     private var weightedGraph: Array<DoubleArray>
     private var vertexCount = 0
+
+    override val isDirected: Boolean
+        get() = directed
 
     init {
         if (initialCapacity < 1) {
@@ -83,7 +86,7 @@ class StandardGraphMatrix<V>(
 
         if (uIndex != null && vIndex != null) { // Get returns Null - Int
             weightedGraph[uIndex][vIndex] = weight
-            if (!isDirected) weightedGraph[vIndex][uIndex] = weight
+            if (!directed) weightedGraph[vIndex][uIndex] = weight
         }
     }
 
@@ -97,7 +100,7 @@ class StandardGraphMatrix<V>(
 
         if (uIndex != null && vIndex != null) { // Get returns Null - Int
             weightedGraph[uIndex][vIndex] = INF
-            if (!isDirected) weightedGraph[vIndex][uIndex] = INF
+            if (!directed) weightedGraph[vIndex][uIndex] = INF
         }
     }
 
@@ -134,7 +137,7 @@ class StandardGraphMatrix<V>(
             val (currentVertex, distance) = visitingQueue.removeFirst()
             result.add(currentVertex to distance)
 
-            val neighbors = if (isDirected) {
+            val neighbors = if (directed) {
                 getChildren(currentVertex)
             } else {
                 getNeighbors(currentVertex)
@@ -161,7 +164,7 @@ class StandardGraphMatrix<V>(
             result[vertex] = discoveryTime to 0
             visitedSet.add(vertex)
 
-            val neighbors = if (isDirected) {
+            val neighbors = if (directed) {
                 getChildren(vertex)
             } else {
                 getNeighbors(vertex)
@@ -187,6 +190,29 @@ class StandardGraphMatrix<V>(
         }
 
         return result
+    }
+
+    override fun transpose(): Graph<V> {
+        val transposedGraph: Graph<V> = StandardGraphList(
+            initialCapacity = this.weightedGraph.size,
+            directed = this.directed
+        )
+
+        for (vertex in getVertices()) {
+            transposedGraph.addVertex(vertex)
+        }
+
+        for ((vertex, index) in vertexMap) {
+            for (i in 0 until vertexCount) {
+                if (weightedGraph[index][i] != INF) {
+                    val destination = vertexMap.entries.find { it.value == i }?.key
+                    destination ?: continue
+                    transposedGraph.addEdge(destination, vertex, weightedGraph[index][i])
+                }
+            }
+        }
+
+        return transposedGraph
     }
 
     override fun getWeight(u: V, v: V): Double {

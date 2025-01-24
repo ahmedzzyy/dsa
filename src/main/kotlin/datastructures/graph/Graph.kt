@@ -15,6 +15,8 @@ interface Graph<V> {
         }
     }
 
+    val isDirected: Boolean
+
     fun addVertex(vertex: V)
     fun removeVertex(vertex: V)
 
@@ -32,6 +34,8 @@ interface Graph<V> {
      * @return returns map of connected vertices with (discoveryTime, finishTime) in a pair
      */
     fun dfsTraversal(): Map<V, Pair<Int, Int>>
+
+    fun transpose(): Graph<V>
 
     fun getNeighbors(vertex: V): Set<V>
     fun getParents(vertex: V): Set<V>
