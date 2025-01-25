@@ -43,6 +43,28 @@ class GraphAlgorithmsTest {
     }
 
     @Test
+    fun topologicalSortGeneratedUsingKahnsAlgorithm() {
+        val names = arrayOf("AAA", "BCD", "EFG", "HIJ", "KLM", "NOP")
+        for (name in names) {
+            nameGraph.addVertex(name)
+        }
+
+        nameGraph.addEdge(names[0], names[1])
+        nameGraph.addEdge(names[2], names[0])
+        nameGraph.addEdge(names[3], names[5])
+        nameGraph.addEdge(names[1], names[3])
+        nameGraph.addEdge(names[2], names[4])
+
+        //    /--> 0 --> 1 --> 4 --> 5
+        // 2
+        //    \--> 4
+
+        assertThat(topologicalSortUsingKahnsAlgorithm(nameGraph)).containsExactly(
+            "EFG", "AAA", "KLM", "BCD", "HIJ", "NOP"
+        )
+    }
+
+    @Test
     fun topologicalSortThrowsErrorForUnDirectedOrCyclicGraph() {
         val names = arrayOf("AAA", "BCD", "EFG", "HIJ", "KLM", "NOP")
         for (name in names) {

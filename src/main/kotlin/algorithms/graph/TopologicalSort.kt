@@ -51,6 +51,59 @@ fun <E> topologicalSort(graph: Graph<E>): List<E> {
     return topSort
 }
 
+/**
+ * Performs a topological sort on a directed acyclic graph (DAG) using Kahn's Algorithm.
+ *
+ *  Topological sorting is an ordering of the vertices in a directed graph such that for every directed edge (u, v),
+ *  vertex `u` comes before vertex `v` in the ordering. This function assumes the input graph is directed and acyclic.
+ *
+ * @param E The type of vertices in the graph.
+ * @param graph The directed acyclic graph (DAG) for which the topological sort will be performed
+ * @return A list of vertices in topological order.
+ *
+ * @throws IllegalArgumentException If the input graph contains a cycle or is not directed. Topological sorting is
+ * defined only for directed acyclic graphs.
+ */
+fun <E> topologicalSortUsingKahnsAlgorithm(graph: Graph<E>): List<E> {
+    if (!graph.isDirected) throw IllegalArgumentException(
+        "Topological sort is only valid for directed acyclic graphs (DAGs). The input graph is undirected."
+    )
+
+    val topSort = arrayListOf<E>()
+    val inDegreeMap = mutableMapOf<E, Int>()
+    val visitingQueue = ArrayDeque<E>()
+
+    for (vertex in graph.getVertices()) {
+        val inDegree = graph.getInDegree(vertex)
+        inDegreeMap[vertex] = inDegree
+        if (inDegree == 0) {
+            visitingQueue.addLast(vertex)
+        }
+    }
+
+    var index = 0
+    while (visitingQueue.isNotEmpty()) {
+        val currentElement = visitingQueue.removeFirst()
+        topSort.add(currentElement)
+        index++
+
+        for (destination in graph.getNeighbors(currentElement)) {
+            val inDegree = inDegreeMap[destination]
+            inDegree ?: continue
+            inDegreeMap[destination] = inDegree - 1
+            if ((inDegree - 1) == 0) {
+                visitingQueue.addLast(destination)
+            }
+        }
+    }
+
+    if (index != graph.size()) throw IllegalArgumentException(
+        "Topological sort is only valid for directed acyclic graphs (DAGs). The input graph contains a cycle."
+    )
+
+    return topSort
+}
+
 private fun <E> isCyclicGraph(graph: Graph<E>): Boolean {
     val visitedSet: MutableSet<E> = mutableSetOf()
     val currentPathStack = ArrayDeque<E>()
