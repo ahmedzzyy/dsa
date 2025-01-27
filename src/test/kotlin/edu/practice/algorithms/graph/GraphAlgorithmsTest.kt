@@ -73,7 +73,7 @@ class GraphAlgorithmsTest {
     }
 
     @Test
-    fun findStronglyConnectedComponentsByKosarajuAlgorithm() {
+    fun findStronglyConnectedComponents() {
         val names = arrayOf("AAA", "BCD", "EFG", "HIJ", "KLM", "NOP")
         for (name in names) {
             nameGraph.addVertex(name)
@@ -89,13 +89,20 @@ class GraphAlgorithmsTest {
             .containsExactlyInAnyOrder(
                 setOf(names[0], names[1], names[2]), setOf(names[3]), setOf(names[4]), setOf(names[5])
             )
+        assertThat(stronglyConnectedComponentsUsingTarjans(nameGraph))
+            .containsExactlyInAnyOrder(
+                setOf(names[0], names[1], names[2]), setOf(names[3]), setOf(names[4]), setOf(names[5])
+            )
     }
 
     @Test
-    fun kosarajuAlgorithmThrowsErrorForUndirectedGraph() {
+    fun kosarajuTarjanAlgorithmThrowsErrorForUndirectedGraph() {
         val undirectedGraph = Graph.create<Int>()
         assertThatThrownBy { stronglyConnectedComponentsUsingKosaraju(undirectedGraph) }
             .isInstanceOf(IllegalArgumentException::class.java)
             .hasMessageContaining("Kosaraju's algorithm requires a directed graph. Provided graph is not directed.")
+        assertThatThrownBy { stronglyConnectedComponentsUsingTarjans(undirectedGraph) }
+            .isInstanceOf(IllegalArgumentException::class.java)
+            .hasMessageContaining("Tarjan's algorithm requires a directed graph. Provided graph is not directed.")
     }
 }

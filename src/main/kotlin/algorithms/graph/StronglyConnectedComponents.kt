@@ -81,3 +81,78 @@ fun <E> stronglyConnectedComponentsUsingKosaraju(graph: Graph<E>): Set<Set<E>> {
 
     return stronglyConnectedComponents
 }
+
+/**
+ * Identifies and returns the strongly connected components (SCCs) of a directed graph using Tarjan's algorithm.
+ *
+ * Tarjan's algorithm is a depth-first search (DFS)-based algorithm that finds SCCs in a single traversal.
+ * It assigns each vertex:
+ * 1. A discovery time (the time when the vertex is first visited).
+ * 2. A low-link value (the smallest discovery time reachable from the vertex).
+ *
+ * The algorithm maintains a stack to track the vertices currently in the current DFS path.
+ * When a vertex's low-link value matches its discovery time, it is identified as the root of a new SCC.
+ * All nodes in the stack, up to this root vertex, form the SCC.
+ *
+ * @throws IllegalArgumentException If the input graph is not a directed graph. Kosaraju's algorithm is defined only for directed graphs.
+ */
+fun <E> stronglyConnectedComponentsUsingTarjans(graph: Graph<E>): Set<Set<E>> {
+    if (!graph.isDirected) throw IllegalArgumentException(
+        "Tarjan's algorithm requires a directed graph. Provided graph is not directed."
+    )
+
+    val stronglyConnectedComponents: MutableSet<MutableSet<E>> = mutableSetOf()
+
+    val visitedSet: MutableSet<E> = mutableSetOf()
+    val vertexDiscoveryTime = mutableMapOf<E, Int>()
+    val vertexLowLink = mutableMapOf<E, Int>()
+    val stack = ArrayDeque<E>()
+
+    var time = 0
+
+    fun dfsVisit(vertex: E) {
+        visitedSet.add(vertex)
+        vertexDiscoveryTime[vertex] = time
+        vertexLowLink[vertex] = time
+
+        time++
+        stack.addLast(vertex)
+
+        for (neighbor in graph.getChildren(vertex)) {
+            when {
+                !visitedSet.contains(neighbor) -> {
+                    dfsVisit(neighbor)
+                    val currentLowLink = vertexLowLink[vertex]
+                    val neighborLowLink = vertexLowLink[neighbor]
+                    if (currentLowLink != null && neighborLowLink != null) {
+                        vertexLowLink[vertex] = minOf(currentLowLink, neighborLowLink)
+                    }
+                }
+                stack.contains(neighbor) -> {
+                    val currentLowLink = vertexLowLink[vertex]
+                    val neighborDiscoveryTime = vertexDiscoveryTime[neighbor]
+                    if (currentLowLink != null && neighborDiscoveryTime != null) {
+                        vertexLowLink[vertex] = minOf(currentLowLink, neighborDiscoveryTime)
+                    }
+                }
+            }
+        }
+
+        if (vertexLowLink[vertex] == vertexDiscoveryTime[vertex]) {
+            val currentComponent = mutableSetOf<E>()
+            do {
+                val top = stack.removeLast()
+                currentComponent.add(top)
+            } while (top != vertex)
+            stronglyConnectedComponents.add(currentComponent)
+        }
+    }
+
+    for (vertex in graph.getVertices()) {
+        if (!visitedSet.contains(vertex)) {
+            dfsVisit(vertex)
+        }
+    }
+
+    return stronglyConnectedComponents
+}
