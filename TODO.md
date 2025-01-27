@@ -23,7 +23,7 @@
 - [X] Strongly Connected Components
   
 - ### Minimum Spanning Trees
-- [ ] Kruskal’s Algorithm
+- [X] Kruskal’s Algorithm
 - [ ] Prim’s Algorithm
 
 - ### Shortest Path Algorithms
