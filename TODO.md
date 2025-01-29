@@ -24,7 +24,7 @@
   
 - ### Minimum Spanning Trees
 - [X] Kruskal’s Algorithm
-- [ ] Prim’s Algorithm
+- [X] Prim’s Algorithm
 
 - ### Shortest Path Algorithms
 - [ ] Dijkstra's Algorithm (Single Source Shortest Path)
