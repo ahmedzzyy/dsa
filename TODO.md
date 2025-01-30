@@ -28,7 +28,7 @@
 
 - ### Shortest Path Algorithms
 - [ ] Dijkstra's Algorithm (Single Source Shortest Path)
-- [ ] Bellman-Ford Algorithm 
+- [X] Bellman-Ford Algorithm 
 - [ ] Floyd-Warshall Algorithm 
 - [ ] Johnson’s Algorithm for Sparse Graphs
 
