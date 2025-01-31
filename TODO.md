@@ -29,7 +29,7 @@
 - ### Shortest Path Algorithms
 - [X] Dijkstra's Algorithm (Single Source Shortest Path)
 - [X] Bellman-Ford Algorithm 
-- [ ] Floyd-Warshall Algorithm 
+- [X] Floyd-Warshall Algorithm 
 - [ ] Johnson’s Algorithm for Sparse Graphs
 
 ## 3. Problem-Solving Paradigms
