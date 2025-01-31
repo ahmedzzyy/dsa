@@ -102,9 +102,7 @@ fun <E> shortestPathUsingDijkstraAlgorithm(graph: Graph<E>, source: E): Map<E, D
         val shortestTo = shortestPathMap[vertexTo] ?: return
         if (shortestTo > shortestFrom + graph.getWeight(vertexFrom, vertexTo)) {
             minPriorityQueue.remove(vertexTo to shortestPathMap[vertexTo])
-            print("Edge between $vertexFrom and $vertexTo relaxed from ${shortestPathMap[vertexTo]} to ")
             shortestPathMap[vertexTo] = shortestFrom + graph.getWeight(vertexFrom, vertexTo)
-            println("${shortestPathMap[vertexTo]}")
             minPriorityQueue.offer(vertexTo to shortestPathMap[vertexTo]!!)
         }
     }
