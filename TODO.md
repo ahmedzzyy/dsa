@@ -27,7 +27,7 @@
 - [X] Prim’s Algorithm
 
 - ### Shortest Path Algorithms
-- [ ] Dijkstra's Algorithm (Single Source Shortest Path)
+- [X] Dijkstra's Algorithm (Single Source Shortest Path)
 - [X] Bellman-Ford Algorithm 
 - [ ] Floyd-Warshall Algorithm 
 - [ ] Johnson’s Algorithm for Sparse Graphs
