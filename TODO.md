@@ -11,7 +11,7 @@
 ## 1. Implement Advanced Tree Structures
 - [X] Implement a Binary Tree
 - [X] Implement a Binary Search Tree (BST)
-- [ ] Implement an AVL Tree (Self-balancing BST) [Implemented previously in Java]
+- [X] Implement an AVL Tree (Self-balancing BST) [Implemented previously in Java]
 - [X] Implement a Red-Black Tree
 - [ ] Implement a B-Tree
 
