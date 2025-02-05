@@ -20,4 +20,10 @@ class SortingTest {
         bubbleSort(array)
         assertThat(array).isSorted
     }
+
+    @Test
+    fun selectionSortAlgorithmCorrectlySortsElement() {
+        selectionSort(array)
+        assertThat(array).isSorted
+    }
 }
