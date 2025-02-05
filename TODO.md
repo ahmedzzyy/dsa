@@ -1,38 +1,22 @@
 # TODO: Data Structures and Algorithms
 
 ## Table of Contents
-1. [Advanced Tree Structures](#1-implement-advanced-tree-structures)
-2. [Graph Algorithms](#2-graph-algorithms)
-3. [Problem-Solving Paradigms](#3-problem-solving-paradigms)
-4. [String Matching Algorithms](#4-string-matching-algorithms)
-5. [Advanced Topics](#5-advanced-topics)
+1. [Problem-Solving Paradigms](#1-problem-solving-paradigms)
+2. [String Matching Algorithms](#2-string-matching-algorithms)
+3. [Advanced Topics](#3-advanced-topics)
 - [Completed Implementations (archive)](#archive)
 
-## 1. Implement Advanced Tree Structures
-- [X] Implement a Binary Tree
-- [X] Implement a Binary Search Tree (BST)
-- [X] Implement an AVL Tree (Self-balancing BST)
-- [X] Implement a Red-Black Tree
-- [ ] Implement a B-Tree
+<details>
+<summary><strong>Optional Implementations: Set Aside</strong></summary>
+<ul>
+<li><b><i>Advanced Tree Structures:</i></b><br>
+[ ] Implement a B-Tree</li>
+<li><b><i>Graph Algorithms:</i></b><br>
+[ ] Johnson’s Algorithm for Sparse Graphs</li>
+</ul>
+</details>
 
-## 2. Graph Algorithms
-- [X] Graph Traversals
-  - [X] Breadth-First Search (BFS)
-  - [X] Depth-First Search (DFS)
-- [X] Topological Sort
-- [X] Strongly Connected Components
-  
-- ### Minimum Spanning Trees
-- [X] Kruskal’s Algorithm
-- [X] Prim’s Algorithm
-
-- ### Shortest Path Algorithms
-- [X] Dijkstra's Algorithm (Single Source Shortest Path)
-- [X] Bellman-Ford Algorithm 
-- [X] Floyd-Warshall Algorithm 
-- [ ] Johnson’s Algorithm for Sparse Graphs
-
-## 3. Problem-Solving Paradigms
+## 1. Problem-Solving Paradigms
 
 - ### Divide and Conquer
 - [ ] Binary Search (Iterative and Recursive)
@@ -54,8 +38,8 @@
 - [ ] Job Sequencing with Deadlines
 - [ ] Huffman Coding
 - [ ] Optimal Merge Pattern
-- [ ] Minimum Spanning Trees (Prim’s and Kruskal’s)
-- [ ] Single-Source Shortest Path (Dijkstra)
+- [X] Minimum Spanning Trees (Prim’s and Kruskal’s)
+- [X] Single-Source Shortest Path (Dijkstra)
 
 - ### Dynamic Programming
 - [ ] Principles of Dynamic Programming
@@ -64,9 +48,9 @@
 - [ ] Longest Common Subsequence (LCS)
 - [ ] Optimal Binary Search Trees
 - [ ] 0/1 Knapsack Problem
-- [ ] Bellman-Ford Algorithm
+- [X] Bellman-Ford Algorithm
 - [ ] Traveling Salesman Problem (TSP)
-- [ ] Floyd-Warshall Algorithm
+- [X] Floyd-Warshall Algorithm
 
 - ### Backtracking
 - [ ] N-Queens Problem
@@ -79,14 +63,14 @@
 - [ ] 0/1 Knapsack Problem
 - [ ] Traveling Salesman Problem
 
-## 4. String Matching Algorithms
+## 2. String Matching Algorithms
 - [ ] Naive String-Matching Algorithm
 - [ ] Rabin-Karp Algorithm
 - [ ] Knuth-Morris-Pratt (KMP) Algorithm
 - [ ] Finite Automata for String Matching
 - [ ] Suffix Arrays
 
-## 5. Advanced Topics
+## 3. Advanced Topics
 
 - ### NP-Hard and NP-Complete Problems
 - [ ] Polynomial Time
@@ -111,6 +95,32 @@
 
 ## ARCHIVE
 Descending order of completion
+
+### Graph Algorithms
+- [X] Graph Traversals
+  - [X] Breadth-First Search (BFS)
+  - [X] Depth-First Search (DFS)
+- [X] Topological Sort
+- [X] Strongly Connected Components
+
+- ### Minimum Spanning Trees
+- [X] Kruskal’s Algorithm
+- [X] Prim’s Algorithm
+
+- ### Shortest Path Algorithms
+- [X] Dijkstra's Algorithm (Single Source Shortest Path)
+- [X] Bellman-Ford Algorithm
+- [X] Floyd-Warshall Algorithm
+
+---
+
+### Implement Advanced Tree Structures
+- [X] Implement a Binary Tree
+- [X] Implement a Binary Search Tree (BST)
+- [X] Implement an AVL Tree (Self-balancing BST)
+- [X] Implement a Red-Black Tree
+
+---
 
 ### Union-Find (Disjoint Set)
 - [X] Implement Basic Union-Find
