@@ -26,4 +26,10 @@ class SortingTest {
         selectionSort(array)
         assertThat(array).isSorted
     }
+
+    @Test
+    fun insertionSortAlgorithmCorrectlySortsElement() {
+        insertionSort(array)
+        assertThat(array).isSorted
+    }
 }
