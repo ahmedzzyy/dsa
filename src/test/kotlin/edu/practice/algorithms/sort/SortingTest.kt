@@ -32,4 +32,10 @@ class SortingTest {
         insertionSort(array)
         assertThat(array).isSorted
     }
+
+    @Test
+    fun heapSortAlgorithmCorrectlySortsElement() {
+        heapSort(array)
+        assertThat(array).isSorted
+    }
 }
