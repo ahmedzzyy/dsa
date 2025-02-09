@@ -19,7 +19,7 @@
 ## 1. Problem-Solving Paradigms
 
 - ### Divide and Conquer
-- [ ] Binary Search (Iterative and Recursive)
+- [X] Binary Search (Iterative and Recursive)
 - [X] Merge Sort
   - Iterative and Recursive Variants 
   - In-Depth Analysis
