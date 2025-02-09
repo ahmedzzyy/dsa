@@ -21,11 +21,21 @@ fun <E: Comparable<E>> quickSort(array: Array<E>) {
     }
 
     fun quickSortRecursive(start: Int, end: Int) {
-        if (start >= end) return
+        var low = start
+        var high = end
 
-        val pivot = partition(start, end)
-        quickSortRecursive(start, pivot - 1)
-        quickSortRecursive(pivot + 1, end)
+        // Manual Tail Recursion
+        while (low < high) {
+            val pivot = partition(low, high)
+
+            if (pivot - low < high - pivot) {
+                quickSortRecursive(low, pivot - 1)
+                low = pivot + 1
+            } else {
+                quickSortRecursive(pivot + 1, high)
+                high = pivot - 1
+            }
+        }
     }
 
     quickSortRecursive(0, array.size - 1)
