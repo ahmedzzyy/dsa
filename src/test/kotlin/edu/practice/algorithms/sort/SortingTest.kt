@@ -44,4 +44,10 @@ class SortingTest {
         mergeSort(array)
         assertThat(array).isSorted
     }
+
+    @Test
+    fun quickSortAlgorithmCorrectlySortsElement() {
+        quickSort(array)
+        assertThat(array).isSorted
+    }
 }

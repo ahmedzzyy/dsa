@@ -23,7 +23,7 @@
 - [X] Merge Sort
   - Iterative and Recursive Variants 
   - In-Depth Analysis
-- [ ] QuickSort 
+- [X] QuickSort 
   - Algorithm and Analysis
   - Randomized Version 
 - [ ] Strassen’s Matrix Multiplication 
