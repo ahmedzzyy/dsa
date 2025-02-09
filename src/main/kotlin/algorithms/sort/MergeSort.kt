@@ -1,50 +1,70 @@
 package edu.practice.algorithms.sort
 
-fun <E: Comparable<E>> mergeSort(array: Array<E>) {
-    fun merge(start: Int, end: Int) {
-        val mid = (start + end) / 2
+enum class MergeSortVariant { RECURSIVE, ITERATIVE }
 
-        // Take care of inclusivity of `copyOfRange` function
-        val leftArray = array.copyOfRange(start, mid + 1)
-        val rightArray = array.copyOfRange(mid + 1, end + 1)
+fun <E: Comparable<E>> mergeSort(array: Array<E>, variant: MergeSortVariant = MergeSortVariant.RECURSIVE) {
+    when (variant) {
+        MergeSortVariant.RECURSIVE -> mergeSortRecursive(array, 0, array.size - 1)
+        MergeSortVariant.ITERATIVE -> mergeSortIterative(array)
+    }
+}
 
-        var i = 0 // Tracks left array
-        var j = 0 // Tracks right array
-        var k = start // Tracks location to fill
+private fun <E: Comparable<E>> mergeSortRecursive(array: Array<E>, start: Int, end: Int) {
+    if (start >= end) return
 
-        while (i < leftArray.size && j < rightArray.size) {
-            if (leftArray[i] <= rightArray[j]) {
-                array[k] = leftArray[i]
-                i++
-            } else {
-                array[k] = rightArray[j]
-                j++
-            }
-            k++
+    val mid = (start + end) / 2
+    mergeSortRecursive(array, start, mid)
+    mergeSortRecursive(array, mid + 1, end)
+
+    merge(array, start, mid, end)
+}
+
+private fun <E: Comparable<E>> mergeSortIterative(array: Array<E>) {
+    val size = array.size
+    var currentSize = 1
+
+    while (currentSize < size) {
+        var leftStart = 0
+        while (leftStart < (size - 1)) {
+            val mid = minOf(leftStart + currentSize - 1, size - 1)
+            val rightEnd = minOf(leftStart + 2 * currentSize - 1, size - 1)
+
+            merge(array, leftStart, mid, rightEnd)
+            leftStart += (2 * currentSize)
         }
 
-        while (i < leftArray.size) {
+        currentSize *= 2
+    }
+}
+
+private fun <E: Comparable<E>> merge(array: Array<E>, left: Int, mid: Int, right: Int) {
+    val leftArray = array.copyOfRange(left, mid + 1)
+    val rightArray = array.copyOfRange(mid + 1, right + 1)
+
+    var i = 0 // Index for Left Array
+    var j = 0 // Index for Right Array
+    var k = left // Index for Original Array
+
+    while (i < leftArray.size && j < rightArray.size) {
+        if (leftArray[i] <= rightArray[j]) {
             array[k] = leftArray[i]
             i++
-            k++
-        }
-
-        while (j < rightArray.size) {
+        } else {
             array[k] = rightArray[j]
             j++
-            k++
         }
+        k++
     }
 
-    fun mergeSortRecursive(array: Array<E>, start: Int, end: Int) {
-        if (start >= end) return
-
-        val mid = (start + end) / 2
-        mergeSortRecursive(array, start, mid)
-        mergeSortRecursive(array, mid + 1, end)
-
-        merge(start, end)
+    while (i < leftArray.size) {
+        array[k] = leftArray[i]
+        i++
+        k++
     }
 
-    mergeSortRecursive(array, 0, array.size - 1)
+    while (j < rightArray.size) {
+        array[k] = rightArray[j]
+        j++
+        k++
+    }
 }

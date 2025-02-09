@@ -40,8 +40,14 @@ class SortingTest {
     }
 
     @Test
-    fun mergeSortAlgorithmCorrectlySortsElement() {
+    fun mergeSortRecursiveAlgorithmCorrectlySortsElement() {
         mergeSort(array)
+        assertThat(array).isSorted
+    }
+
+    @Test
+    fun mergeSortIterativeAlgorithmCorrectlySortsElement() {
+        mergeSort(array, MergeSortVariant.ITERATIVE)
         assertThat(array).isSorted
     }
 
