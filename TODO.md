@@ -20,7 +20,7 @@
 
 - ### Divide and Conquer
 - [ ] Binary Search (Iterative and Recursive)
-- [ ] Merge Sort 
+- [X] Merge Sort
   - Iterative and Recursive Variants 
   - In-Depth Analysis
 - [ ] QuickSort 

@@ -38,4 +38,10 @@ class SortingTest {
         heapSort(array)
         assertThat(array).isSorted
     }
+
+    @Test
+    fun mergeSortAlgorithmCorrectlySortsElement() {
+        mergeSort(array)
+        assertThat(array).isSorted
+    }
 }
