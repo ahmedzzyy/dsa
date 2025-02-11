@@ -64,7 +64,7 @@
 - [ ] Traveling Salesman Problem
 
 ## 2. String Matching Algorithms
-- [ ] Naive String-Matching Algorithm
+- [X] Naive String-Matching Algorithm
 - [ ] Rabin-Karp Algorithm
 - [ ] Knuth-Morris-Pratt (KMP) Algorithm
 - [ ] Finite Automata for String Matching
