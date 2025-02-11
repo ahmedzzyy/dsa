@@ -24,4 +24,14 @@ class StringMatchingTest {
     fun naiveStringMatchesCorrectlyReturnsWhenPatternIsAbsent() {
         assertThat(naiveStringMatch(text, "non_existent_pattern")).isEmpty()
     }
+
+    @Test
+    fun rabinKarpMatchesCorrectlyReturnsWhenPatternIsPresent() {
+        assertThat(rabinKarpMatch(text, pattern)).containsExactlyInAnyOrder(0, 7, 11, 18)
+    }
+
+    @Test
+    fun rabinKarpMatchesCorrectlyReturnsWhenPatternIsAbsent() {
+        assertThat(rabinKarpMatch(text, "non_existent_pattern")).isEmpty()
+    }
 }
