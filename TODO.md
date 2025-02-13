@@ -32,7 +32,7 @@
   - [ ] Master Theorem and Examples
 
 - ### Greedy Algorithms
-- [ ] Activity Selection Problem
+- [X] Activity Selection Problem
 - [ ] Knapsack Problem
 - [ ] Job Sequencing with Deadlines
 - [ ] Huffman Coding
