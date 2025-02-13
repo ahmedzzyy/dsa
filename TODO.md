@@ -2,8 +2,7 @@
 
 ## Table of Contents
 1. [Problem-Solving Paradigms](#1-problem-solving-paradigms)
-2. [String Matching Algorithms](#2-string-matching-algorithms)
-3. [Advanced Topics](#3-advanced-topics)
+2. [Advanced Topics](#2-advanced-topics)
 - [Completed Implementations (archive)](#archive)
 
 <details>
@@ -63,14 +62,7 @@
 - [ ] 0/1 Knapsack Problem
 - [ ] Traveling Salesman Problem
 
-## 2. String Matching Algorithms
-- [X] Naive String-Matching Algorithm
-- [X] Rabin-Karp Algorithm
-- [X] Knuth-Morris-Pratt (KMP) Algorithm
-- [X] Finite Automata for String Matching
-- [X] Suffix Arrays
-
-## 3. Advanced Topics
+## 2. Advanced Topics
 
 - ### NP-Hard and NP-Complete Problems
 - [ ] Polynomial Time
@@ -95,6 +87,13 @@
 
 ## ARCHIVE
 Descending order of completion
+
+### String Matching Algorithms
+- [X] Naive String-Matching Algorithm
+- [X] Rabin-Karp Algorithm
+- [X] Knuth-Morris-Pratt (KMP) Algorithm
+- [X] Finite Automata for String Matching
+- [X] Suffix Arrays
 
 ### Graph Algorithms
 - [X] Graph Traversals
