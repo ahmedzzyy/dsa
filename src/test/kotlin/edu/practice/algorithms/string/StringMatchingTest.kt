@@ -44,4 +44,14 @@ class StringMatchingTest {
     fun finiteAutomatonMatchesCorrectlyReturnsWhenPatternIsAbsent() {
         assertThat(finiteAutomatonStringMatch(text, "non_existent_pattern")).isEmpty()
     }
+
+    @Test
+    fun knuthMorrisPrattMatchesCorrectlyReturnsWhenPatternIsPresent() {
+        assertThat(knuthMorrisPrattStringMatch(text, pattern)).containsExactlyInAnyOrder(0, 7, 11, 18)
+    }
+
+    @Test
+    fun knuthMorrisPrattMatchesCorrectlyReturnsWhenPatternIsAbsent() {
+        assertThat(knuthMorrisPrattStringMatch(text, "non_existent_pattern")).isEmpty()
+    }
 }

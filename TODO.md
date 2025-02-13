@@ -66,7 +66,7 @@
 ## 2. String Matching Algorithms
 - [X] Naive String-Matching Algorithm
 - [X] Rabin-Karp Algorithm
-- [ ] Knuth-Morris-Pratt (KMP) Algorithm
+- [X] Knuth-Morris-Pratt (KMP) Algorithm
 - [X] Finite Automata for String Matching
 - [ ] Suffix Arrays
 
