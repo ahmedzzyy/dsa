@@ -68,7 +68,7 @@
 - [X] Rabin-Karp Algorithm
 - [X] Knuth-Morris-Pratt (KMP) Algorithm
 - [X] Finite Automata for String Matching
-- [ ] Suffix Arrays
+- [X] Suffix Arrays
 
 ## 3. Advanced Topics
 
