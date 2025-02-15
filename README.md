@@ -60,22 +60,18 @@ Alternatively, you can directly specify the main class if needed:
 ```
 
 ## Contribution Guide
-This repository is primarily for practice, but contributions are welcome if they align with its educational goals.
-Feel free to comment and suggest what can be fixed or improved.
+This repository is primarily for practice, but I would be more than happy to have your help.
+Whether you're improving documentation, optimizing existing implementations, or adding new features, open an issue or drop a comment, I’d love to hear from you.
 
-Before contributing, take a look at the [`TODO.md`](./TODO.md) file for a list of planned features or tasks.
-You can pick one and create a pull request!
+Before contributing, here are a few things to check out:
+- Read the Guidelines: Take a look at the [`CONTRIBUTING.md`](./CONTRIBUTING.md) file for details on how to get started, set up the project, and submit a pull request.
+- Check the Roadmap: The [`TODO.md`](./TODO.md) file lists planned features, improvements, and pending tasks. If you see something that interests you, feel free to tackle it!
 
 ### Suggestions for Contributions:
 - Implement additional data structures or algorithms.
 - Add or improve test cases.
 - Provide documentation or examples.
 - Address tasks or enhancements listed in [`TODO.md`](./TODO.md).
-
-### Pull Requests
-
-If you want to contribute, fork the repository, create a new branch for your feature or fix, and open a pull request.
-Ensure the code follows the established directory structure and conventions.
 
 ## Learning Goals
 
