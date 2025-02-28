@@ -34,7 +34,7 @@
 - ### Greedy Algorithms
 - [X] Activity Selection Problem
 - [ ] Knapsack Problem
-- [ ] Job Sequencing with Deadlines
+- [X] Job Sequencing with Deadlines
 - [X] Huffman Coding
 - [ ] Optimal Merge Pattern
 - [X] Minimum Spanning Trees (Prim’s and Kruskal’s)
