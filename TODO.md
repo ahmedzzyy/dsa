@@ -36,7 +36,7 @@
 - [ ] Knapsack Problem
 - [X] Job Sequencing with Deadlines
 - [X] Huffman Coding
-- [ ] Optimal Merge Pattern
+- [X] Optimal Merge Pattern
 - [X] Minimum Spanning Trees (Prim’s and Kruskal’s)
 - [X] Single-Source Shortest Path (Dijkstra)
 
