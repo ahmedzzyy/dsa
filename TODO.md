@@ -43,7 +43,7 @@
 - ### Dynamic Programming
 - [ ] Principles of Dynamic Programming
 - [ ] Multi-Stage Graphs
-- [ ] Matrix Chain Multiplication
+- [X] Matrix Chain Multiplication
 - [ ] Longest Common Subsequence (LCS)
 - [ ] Optimal Binary Search Trees
 - [ ] 0/1 Knapsack Problem
