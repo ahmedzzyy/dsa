@@ -44,7 +44,7 @@
 - [ ] Principles of Dynamic Programming
 - [ ] Multi-Stage Graphs
 - [X] Matrix Chain Multiplication
-- [ ] Longest Common Subsequence (LCS)
+- [X] Longest Common Subsequence (LCS)
 - [ ] Optimal Binary Search Trees
 - [ ] 0/1 Knapsack Problem
 - [X] Bellman-Ford Algorithm
