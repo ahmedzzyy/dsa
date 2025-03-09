@@ -46,7 +46,7 @@
 - [X] Matrix Chain Multiplication
 - [X] Longest Common Subsequence (LCS)
 - [ ] Optimal Binary Search Trees
-- [ ] 0/1 Knapsack Problem
+- [X] 0/1 Knapsack Problem
 - [X] Bellman-Ford Algorithm
 - [ ] Traveling Salesman Problem (TSP)
 - [X] Floyd-Warshall Algorithm
