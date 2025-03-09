@@ -25,7 +25,8 @@
 - [X] QuickSort
   - Algorithm and Analysis
   - Randomized Version 
-- [ ] Strassen’s Matrix Multiplication 
+- Strassen’s Matrix Multiplication
+  - [X] Concept
 - [ ] Recurrence Relations 
   - [ ] Substitution Method 
   - [ ] Recursion Tree Method
