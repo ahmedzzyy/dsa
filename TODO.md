@@ -33,7 +33,7 @@
 
 - ### Greedy Algorithms
 - [X] Activity Selection Problem
-- [ ] Knapsack Problem
+- [X] Knapsack Problem
 - [X] Job Sequencing with Deadlines
 - [X] Huffman Coding
 - [X] Optimal Merge Pattern
