@@ -45,7 +45,7 @@
 - [X] Multi-Stage Graphs
 - [X] Matrix Chain Multiplication
 - [X] Longest Common Subsequence (LCS)
-- [ ] Optimal Binary Search Trees
+- [X] Optimal Binary Search Trees
 - [X] 0/1 Knapsack Problem
 - [X] Bellman-Ford Algorithm
 - [ ] Traveling Salesman Problem (TSP)
