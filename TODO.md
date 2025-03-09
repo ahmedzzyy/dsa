@@ -48,7 +48,7 @@
 - [X] Optimal Binary Search Trees
 - [X] 0/1 Knapsack Problem
 - [X] Bellman-Ford Algorithm
-- [ ] Traveling Salesman Problem (TSP)
+- [X] Traveling Salesman Problem (TSP)
 - [X] Floyd-Warshall Algorithm
 
 - ### Backtracking
