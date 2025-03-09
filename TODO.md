@@ -41,7 +41,7 @@
 - [X] Single-Source Shortest Path (Dijkstra)
 
 - ### Dynamic Programming
-- [ ] Principles of Dynamic Programming
+- [X] Principles of Dynamic Programming
 - [X] Multi-Stage Graphs
 - [X] Matrix Chain Multiplication
 - [X] Longest Common Subsequence (LCS)
