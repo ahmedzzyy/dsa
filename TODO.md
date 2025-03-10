@@ -53,7 +53,7 @@
 - [X] Floyd-Warshall Algorithm
 
 - ### Backtracking
-- [ ] N-Queens Problem
+- [X] N-Queens Problem
 - [ ] Sum of Subsets
 - [ ] Graph Coloring
 - [ ] Hamiltonian Cycle
