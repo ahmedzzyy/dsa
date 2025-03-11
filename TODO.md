@@ -54,7 +54,7 @@
 
 - ### Backtracking
 - [X] N-Queens Problem
-- [ ] Sum of Subsets
+- [X] Sum of Subsets
 - [ ] Graph Coloring
 - [ ] Hamiltonian Cycle
 
