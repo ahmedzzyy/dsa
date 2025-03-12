@@ -56,7 +56,7 @@
 - [X] N-Queens Problem
 - [X] Sum of Subsets
 - [X] Graph Coloring
-- [ ] Hamiltonian Cycle
+- [X] Hamiltonian Cycle
 
 - ### Branch and Bound
 - [ ] Job Sequencing with Deadline
