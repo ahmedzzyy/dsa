@@ -12,6 +12,10 @@
 [ ] Implement a B-Tree</li>
 <li><b><i>Graph Algorithms:</i></b><br>
 [ ] Johnson’s Algorithm for Sparse Graphs</li>
+<li><b><i>Branch and Bound:</i></b><br>
+- [ ] Job Sequencing with Deadline<br>
+- [ ] 0/1 Knapsack Problem<br>
+- [ ] Traveling Salesman Problem</li>
 </ul>
 </details>
 
@@ -69,11 +73,6 @@
 - [X] Sum of Subsets
 - [X] Graph Coloring
 - [X] Hamiltonian Cycle
-
-- ### Branch and Bound
-- [ ] Job Sequencing with Deadline
-- [ ] 0/1 Knapsack Problem
-- [ ] Traveling Salesman Problem
 
 ## 2. Advanced Topics
 
