@@ -15,6 +15,18 @@
 </ul>
 </details>
 
+<details>
+<summary><strong>Miscellaneous</strong></summary>
+<ul>
+<li>
+[ ] Write my understanding of the algorithm and its analysis including Time and Space Complexity
+</li>
+<li>
+[ ] Write KDoc for undocumented data structures and algorithms
+</li>
+</ul>
+</details>
+
 ## 1. Problem-Solving Paradigms
 
 - ### Divide and Conquer
@@ -27,10 +39,10 @@
   - Randomized Version 
 - Strassen’s Matrix Multiplication
   - [X] Concept
-- [ ] Recurrence Relations 
-  - [ ] Substitution Method 
-  - [ ] Recursion Tree Method
-  - [ ] Master Theorem and Examples
+- Recurrence Relations 
+  - Substitution Method 
+  - Recursion Tree Method
+  - Master Theorem and Examples
 
 - ### Greedy Algorithms
 - [X] Activity Selection Problem
