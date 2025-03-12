@@ -31,20 +31,46 @@
 </ul>
 </details>
 
-## 1. Problem-Solving Paradigms
+## 1. Advanced Topics
+
+- ### NP-Hard and NP-Complete Problems
+- [ ] Polynomial Time
+- [ ] Polynomial-Time Verification
+- [ ] NP-Completeness Proofs
+- [ ] NP-Complete Problems
+
+- ### Approximation Algorithms
+- [ ] Vertex Cover Problem
+- [ ] Traveling Salesperson Problem (TSP)
+- [ ] Set-Covering Problem
+- [ ] Subset-Sum Problem
+
+- ### Parallel Algorithms
+- [ ] Basics of Fork-Join Parallelism
+- [ ] Parallel Merge Sort
+- [ ] Parallel Matrix Multiplication
+
+- ### Machine Learning Algorithms
+- [ ] Clustering
+- [ ] Gradient Descent
+
+## ARCHIVE
+Descending order of completion
+
+### Problem-Solving Paradigms
 
 - ### Divide and Conquer
 - [X] Binary Search (Iterative and Recursive)
 - [X] Merge Sort
-  - Iterative and Recursive Variants 
+  - Iterative and Recursive Variants
   - In-Depth Analysis
 - [X] QuickSort
   - Algorithm and Analysis
-  - Randomized Version 
+  - Randomized Version
 - Strassen’s Matrix Multiplication
   - [X] Concept
-- Recurrence Relations 
-  - Substitution Method 
+- Recurrence Relations
+  - Substitution Method
   - Recursion Tree Method
   - Master Theorem and Examples
 
@@ -73,32 +99,6 @@
 - [X] Sum of Subsets
 - [X] Graph Coloring
 - [X] Hamiltonian Cycle
-
-## 2. Advanced Topics
-
-- ### NP-Hard and NP-Complete Problems
-- [ ] Polynomial Time
-- [ ] Polynomial-Time Verification
-- [ ] NP-Completeness Proofs
-- [ ] NP-Complete Problems
-
-- ### Approximation Algorithms
-- [ ] Vertex Cover Problem
-- [ ] Traveling Salesperson Problem (TSP)
-- [ ] Set-Covering Problem
-- [ ] Subset-Sum Problem
-
-- ### Parallel Algorithms
-- [ ] Basics of Fork-Join Parallelism
-- [ ] Parallel Merge Sort
-- [ ] Parallel Matrix Multiplication
-
-- ### Machine Learning Algorithms
-- [ ] Clustering
-- [ ] Gradient Descent
-
-## ARCHIVE
-Descending order of completion
 
 ### String Matching Algorithms
 - [X] Naive String-Matching Algorithm
